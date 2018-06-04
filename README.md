@@ -26,6 +26,7 @@ Beschrieben wird die Installation und Einrichtung quick and dirty für einen Win
     - ebenso in das voreingestellte Verzeichnis installieren
 
 ### Diplomarbeit beginnen
+Informationen zu Abschlussarbeiten der Fakultät Elektrotechnik gibt es auf [dieser Seite](https://www.htw-dresden.de/fakultaet-elektrotechnik/fakultaet/studierende/abschlussarbeiten.html).
 Texmaker selbst bietet eine gute Hilfe für LaTex und ein Benutzerhandbuch unter Hilfe an. Damit kann man schnell beginnen in Texmaker LaTex zu schreiben.
 Nun noch das **Template - link muss hier noch eingefügt werden** herunterladen und ihr habt folgende Dinge schon integriert und mit Beispielen versehen:
 ```
