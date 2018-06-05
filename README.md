@@ -27,10 +27,10 @@ Beschrieben wird die Installation und Einrichtung quick and dirty für einen Win
 Wer direkt anfangen möchte, kann das nächste Kapitel überspringen.
 
 ### Informationen zur Formatierung
-- Viel geholfen hat mir auf jeden Fall [diese Homepage](http://namsu.de/latex.html). Für den Fall, dass die Seite offline geht, [hier](docs/Latex-Einfuehrung) die PDF der LaTex-Einführung von Sascha Frank.
+- Viel geholfen haben mir auf jeden Fall [diese Einführung(!)](https://www.sharelatex.com/learn) und [diese Homepage](http://namsu.de/latex.html). Für den Fall, dass die Seite von Sascha Frank offline geht, [hier](docs/Latex-Einfuehrung) die PDF der LaTex-Einführung von ihm.
 - Im [Leitfaden für wissenschaftliche Dokumente](docs/Leitfaden_fuer_wiss_Dokumente.pdf) - welcher von der Fakultät Maschinenwesen ist, aber für uns genauso gut gilt - sind alle wichtigen Formatierungen für Abschlussarbeiten der HTW Dresden zusammengefasst. Diese sind auch im Template zusammengefasst.
 [Fakultät Maschinenwesen HTW Dresden - Informationen für Studierende](https://www.htw-dresden.de/fakultaet-maschinenbau/studium/infos-fuer-studierende.html)
-- Im [Sündenregister](docs/l2tabu.pdf) sind verschiedene Sünden für LaTex aufgelistet. [LaTex Sündenregister Homepage](http://www.dante.de/CTAN/info/german/l2tabu/)
+- Im [Sündenregister](docs/l2tabu.pdf) sind verschiedene Sünden für LaTex aufgelistet. [LaTex Sündenregister Homepage](http://www.dante.de/CTAN/info/german/l2tabu/) Leider ist das Ganze auch ein wenig veraltet, wie so viel zum Thema LaTex.
 - Die Formatierung funktioniert per [KOMA-Script](/docs/scrguide.pdf). [Link zum typearea-paket](https://ctan.org/pkg/typearea)
 
 ### Diplomarbeit beginnen
