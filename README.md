@@ -51,11 +51,8 @@ To Do - latex files aufteilen für eine größere übersicht im dokument:
 dabei muss documentclass am Anfang stehen!!!
 
 
-abkuerzungen
-literatur
-formelzeichen-und-symbole
-form-und-aufbau
-anhang
-titelseite
-eidesstattliche-erklaerung
+frontback: abkuerzungen, literatur, formelzeichen-und-symbole, anhang, titelseite, eidesstatt-erklaerung
+style: form-und-aufbau, usepackage *in der richtigen Reihenfolge*
+gfx: alle bilder
+content: die einzelnen kapitel
 
