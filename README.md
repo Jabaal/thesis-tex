@@ -27,6 +27,13 @@ Beschrieben wird die Installation und Einrichtung quick and dirty für einen Win
     - schnell noch Konfigurieren:
       - erst auf Englisch umstellen (die deutsche Übersetzung ist einfach grauenvoll) unter *Optionen -> Sprache der Benutzeroberfläche -> en*
       - unter *Options -> Configure Texmaker* im Reiter *Quick Build* unbedingt *XeLaTex + View PDF* auswählen, damit auch die üblichen Schriftarten (wie z.B. *Arial*) verwendet werden können
+      - Damit Glossare wie z.B. das Abkürzungsverzeichnis erstellt werden können, muss man noch unter *User > User commands > Edit User Commands* einen Eintrag hinzufügen und die Felder wie folgt ausfüllen:
+        - Menu Item: makeglossaries
+        - Command: makeglossaries %
+  -[Active-Pearl herunterladen](https://www.activestate.com/activeperl/downloads) *meine Version:5.24.3.2404 x64*
+    - Pearl installieren
+    - Verzeichnis nicht ändern, *File extension* und *PATH* zum Pearl-Interpreter angekreuzt lassen
+    - eventuelle Schwierigkeiten mittels [dieser Anleitung](https://tex.stackexchange.com/questions/158796/miktex-and-perl-scripts-and-one-python-script) korrigieren
 Wer direkt anfangen möchte, kann das nächste Kapitel überspringen.
 
 ### Informationen zur Formatierung
