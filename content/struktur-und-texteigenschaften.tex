@@ -1,0 +1,104 @@
+\chapter{Struktur und Texteigenschaften}%
+\section{Allgemeiner Aufbau}%
+Folgender Grundsätzlicher Aufbau der Diplomarbeit wird gefordert - von den optionalen Seiten laut Leitfaden optional ist nur das "Spezifische Titelblatt" übernommen worden:%
+\begin{itemize}%
+ \item Leerseite%
+ \item Aufgabenblatt der Hochschule (1x original, 1x Kopie) \emph{wird hier nicht eingefügt, da diese Kopie in der Druckerei eingefügt werden muss!}%
+ \item Spezifisches Titelblatt%
+ \item Inhaltsverzeichnis%
+ \item Abkürzungsverzeichnis%
+ \item Verzeichnis der Formelzeichen und Symbole%
+ \item Abbildungsverzeichnis%
+ \item Tabellenverzeichnis%
+ \item Inhalt des Dokuments%
+ \item Literatur- und Quellenverzeichnis%
+ \item Eidesstattliche Erklärung%
+ \item Anlagenverzeichnis%
+ \item Anlagen%
+ \item Leerseite%
+\end{itemize}%
+%
+%
+%
+\section{Dokumentstruktur}%
+Oft will man Kapitel oder andere Teile der Arbeit umstrukturieren. Dafür empfiehlt es sich (weniger Scrollarbeit, eure Maushand wird es euch danken), zumindest die einzelnen Kapitel (eventuell mehr) in \emph{einzelne} Dateien zu packen, die man in einer Hauptdatei zusammenfügt. Einfügen solltet ihr \textsc{NUR} wie  in \ref{tab: einfuegen} zu sehen vornehmen. Der Befehl \textbackslash input\{\} wirkt dabei so, als ob ihr den Code direkt in euer Dokument einfügen würdet. %
+\begin{table}[h]%
+\begin{tabu} to \textwidth {X[l]X[l]}%
+\toprule%
+\textbackslash input\{./content/kapitelname.tex\} & Fügt den Tex-Code aus der Datei "`kapitelname.tex"' genau an der Stelle ein, wo der Befehl steht. Dabei liegen die Dateien im Ordner "`/content/"' in eurem Ordner mit der Datei \emph{template-htw-abschlussarbeit.tex}\\%
+\bottomrule%
+\end{tabu}%
+\caption{Einfuegen}%
+\label{tab: einfuegen}%
+\end{table}%
+%
+%
+\section{Kapitelstruktur}
+Mit folgenden Befehlen aus \ref{tab: kapitel} Strukturiert man seine Überschriften. Diese 6 Ebenen solltet ihr maximal verwenden:
+\begin{table}[h]
+\begin{tabu} to \textwidth {X[l]X[l]}
+\toprule
+\textbackslash chapter\{Name\} & 1. Name\\
+\textbackslash section\{Name\} & 1.1. Name\\
+\textbackslash subsection\{Name\} & 1.1.1 Name \\
+\textbackslash subsubsection\{Name\} & 1.1.1.1 Name \\
+\textbackslash paragraph\{Name\} & 1.1.1.1.1 Name \\
+\textbackslash subparagraph\{Name\} & 1.1.1.1.1.1 Name \\
+\bottomrule
+\end{tabu}
+\caption{Kapitel}
+\label{tab: kapitel}
+\end{table}
+Anmerkungen zur Struktur:
+\begin{itemize}
+\item Außer die voreingestellten nicht nummerierten Kapiteln werden alle Kapitel nummeriert in einer Abschlussarbeit!
+\item Ein Unterpunkt benötigt mindestens zwei Einträge! Auf \textbackslash chapter\{\} müssen also mindestens zwei \textbackslash section\{\} folgen, damit ein Einfügen von \textbackslash section\{\} berechtigt ist!
+\item Änderungen der Kapitelstruktur sind \emph{sofort} im linken Übersichtsbereich von \emph{TexMaker} unter \textsc{structure} sichtbar, yay!
+\item Bei Änderungen der Kapitelstruktur muss man \emph{zwei Mal kompilieren}, damit man die Änderung auch im PDF sieht!
+\end{itemize}
+%
+%
+%
+\section{Absätze}
+Die wichtigsten Strukturen für eine Abschlussarbeit sind die folgenden beiden:
+%
+%
+%
+\section{Akzente setzen}
+Für längere Akzente benutzt man \textit{kursive Schrift}. Funktioniert wie hier in \ref{tab: kursiv} zu sehen:\\
+\begin{table}[h]
+\begin{tabu} to \textwidth {X[l]X[l]}
+\toprule
+\textbackslash textit\{kursiv\} & \textsc{kursiv} \\
+\bottomrule
+\end{tabu}
+\caption{kursiv}
+\label{tab: kursiv}
+\end{table}
+%
+%
+Weil \textbf{fetter Text} mit der Schriftart \emph{Arial} hässlich aussieht und \underline{unterstreichen} mindestens genauso schäbig aussieht, verwenden wir weder fetten Text noch unterstreichen wir Wörter. Stattdessen nutzen wir \textsc{Kapitälchen} und \emph{Akzente}. \textsc{Kapitälchen funktionieren} wie in \ref{tab: kapitälchen} zu sehen:\\
+\begin{table}[h]
+\begin{tabu} to \textwidth {X[l]X[l]}
+\toprule
+\textbackslash textsc\{Kapitälchen\} & \textsc{Kapitälchen} \\
+\bottomrule
+\end{tabu}
+\caption{Kapitälchen}
+\label{tab: kapitälchen}
+\end{table}
+%
+%
+Um einzelne \emph{Akzent} zu setzen, nutzt man den Befehl aus \ref{tab: akzent}. Man beobachte, dass der \emph{Akzent} in kursiver Schriftumgebung anders gesetzt wird:
+\begin{table}[h]
+\begin{tabu} to \textwidth {X[l]X[l]}
+\toprule
+\textbackslash emph\{Akzent\} & \emph{Akzent} \\
+Ein \emph{Akzent} in normaler Schriftumgebung & \textit{Ein \emph{Akzent} in kursiver Schriftumgebung}\\
+\bottomrule
+\end{tabu}
+\caption{Akzent}
+\label{tab: akzent}
+\end{table}
+%
+%

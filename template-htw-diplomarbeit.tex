@@ -1,66 +1,166 @@
-%Satzspiegelberechnung mit typearea.sty, siehe scrguide
-%explizites laden von typearea entfällt, da scrreprt (KOMA-Script-Klasse) verwendet wird
-\documentclass[oneside,a4paper,DIV=calc,BCOR=10mm, parskip=false]{scrreprt}
-%[hier KOMA-Optionen mit scrreprt] - Report, weil wir kein Buch schreiben, sondern eine Diplomarbeit
-%oneside/twoside einseitig/zweiseitig
-%
-%Änderungen bei Zweiseitig: Seitenzahlen anders und 
+\input{./style/format-und-aufbau.tex}
 %
 %
-%Mit Hilfe der Option DIV=Faktor wird festgelegt, in wie viele Streifen die Seite horizontal und vertikal bei der Satzspiegelkonstruktion eingeteilt wird. DIV=calc nimmt Ihnen diese Arbeit ab (hängt ja auch von der Schriftart und -größe ab)
-%Mit Hilfe der Option BCOR=Korrektur geben Sie den absoluten Wert der Bindekorrektur an, also die Breite des Bereichs, der durch die Bindung von der Papierbreite verloren geht.
-%"parskip=false Absätze werden durch einen Einzug der ersten Zeilen von einem Geviert (1 em) gekennzeichnet. Der erste Absatz eines Abschnitts wird nicht eingezogen." Alles andere ist nicht sinnvoll. siehe scrguide.pdf!
-
-
-%"Satzspiegelberechnung mit demselben DIV -Argument, das beim letzten Aufruf an gegeben wurde, erneut durchführen." sollte nochmal durchgeführt werden am Ende
-\KOMAoptions{DIV=last}
-%paket babel für richtige Worttrennung und hypephenation und änderung der Überschriften von Table of Contens in Inhaltsverzeichnis z.B.
-%Paket babel ngerman nutzen, german ist ALTE RECHTSCHREIBUNG
-%https://tex.stackexchange.com/questions/67549/whats-the-difference-between-ngerman-and-german-in-babel
-\usepackage[ngerman]{babel}
-%inputenc erlaubt es dem Nutzer, Nicht-ASCII Zeichen direkt über die Tastatur einzugeben
-%fontenc kümmert sich um die Ausgabe, also darum welches Zeichen genutzt wird, um einen Buchstaben darzustellen
-%siehe https://tex.stackexchange.com/questions/664/why-should-i-use-usepackaget1fontenc/677#677
-\usepackage[T1]{fontenc}
-%utf-8 encoding nutzen! es ist 2018!
-%https://tex.stackexchange.com/questions/44694/fontenc-vs-inputenc
-%deshalb unbedingt erst fontenc vor inputenc!!!
-%hier die deutsche übersetzung http://www.uweziegenhagen.de/?p=1644
-\usepackage[utf8]{inputenc}
-%Als Schriftart ist eigentlich Arial vorgesehen, jedoch nicht sinnvoll verfügbar in LaTex, deshalb wird Helvetica verwendet
-\usepackage{helvet}
-%amsmath für tolle formeln
-\usepackage{amsmath}
-
-
-
-
-%Zeilenabstand einstellen mit setspace.sty - so werden auch in Fußzeilen die alten Abstände beibehalten! Siehe Sündenkatalog
-%1,5 Zeilig wurde gewählt.
-\usepackage{setspace}
-\onehalfspacing
-%oder
-%\linespread{1.2}
-%für Werte schaut man hier: https://www.sharelatex.com/learn/Paragraph_formatting#Line_spacing
-
-
+\usepackage{hyperref} % Mit dem Paket hyperref können Links innerhalb des Dokumentes im späteren PDF Format angeklickt werden und schicken einen durch das PDF, so wie es sein soll. Tolles Feature, sollten alle PDFs haben. Zusätzlich können für die verschiedenen Reader noch .. definiert werden
+%
+% 
+\usepackage{amsmath} % Das einzig wahre Paket für tolle Formeln
+%
+%
+\usepackage{graphicx} % Paket für sinnvolles einfügen von Grafiken
+\graphicspath{ {./gfx/} } % Pfad für die Bilder festlegen - relativ zum Haupttex-file
+%
+%
+% Das Paket listings wird benötigt, um line-breaks zu haben, wenn man normalen .tex-code eingibt
+% weiteres dazu: https://tex.stackexchange.com/questions/121601/automatically-wrap-the-text-in-verbatim?noredirect=1&lq=1
+\usepackage{listings}
+\lstset{
+basicstyle=\small\ttfamily,
+columns=flexible,
+breaklines=true
+}
+%
+%
+% Das Paket glossaries wird benötigt, um das Abkürzungsverzeichnis und das Verzeichnis für Formelzeichen und Symbole zu erstellen. Die Option toc heißt, dass diese im Inhaltsverzeichnis gelistet werden.
+%\usepackage[toc,acronym]{glossaries}
+% Mehr Optionen und Stile laden
+\usepackage{glossaries-extra}
+\usepackage{glossary-longbooktabs} %benötigt?
+\usepackage{glossaries-extra-stylemods} %benötigt?
+% Nun noch die Verzeichnisse erstellen - ohne index - muss verbessert werden
+\makenoidxglossaries 
+% neue Einträge erstellen
+\newglossaryentry{formula}
+{
+    name=formula,
+    description={A mathematical expression}
+}
+\newglossaryentry{latex}
+{
+    name=latex,
+    description={Is a mark up language specially suited for 
+scientific documents}
+}
+%
+%
+% tabu Paket, damit man eine Tabelle einfach so auf die Breite des Textfeldes einstellen kann.
+% Alternativ tabularx?
+\usepackage{tabu}
+%
+%
+\usepackage{booktabs} % booktabs für schönere Tabellen
+% benötigt?
+%
+%
+% "Satzspiegelberechnung mit demselben DIV -Argument, das beim letzten Aufruf an gegeben wurde, erneut durchführen." laut Anleitung des KOMA-Scriptes, also tun wir das auch:
+%\KOMAoptions{DIV=last}
+% benötigt?
+%
+%
+%Dokument beginnen
 \begin{document}
+%folgender Grundsätzlicher Aufbau der Diplomarbeit wird gefordert - die mit /// markierten Zeilen sind Optional und wurden für das Template ausgelassen!
+% Leerseite
+% Aufgabenblatt der Hochschule (1x original, 1x Kopie) - wird hier nicht eingefügt, da diese Kopie in der Druckerei eingefügt werden muss!
+% ///Spezifisches Titelblatt
+% ///Sperrvermerk
+% ///Kurzreferat/Vorwort/Abstract
+% Inhaltsverzeichnis
+% Abkürzungsverzeichnis
+% Verzeichnis der Formelzeichen und Symbole
+% Abbildungsverzeichnis
+% Tabellenverzeichnis
+% Inhalt des Dokuments
+% Literatur- und Quellenverzeichnis
+% ///Danksagung
+% Eidesstattliche Erklärung
+% ///Erklärung über Arbeitsanteile bei Gruppendiplomarbeiten
+% Anlagenverzeichnis
+% Anlagen
+% Leerseite
+%
+%
+% Angaben in die PDF-Infos uebernehmen für PDF Reader
+\makeatletter
+\hypersetup{
+            pdftitle={}, %Titel der Arbeit
+            pdfauthor={}, %Author
+            pdfkeywords={}, % CR-Klassifikation und ggf. weitere Stichworte
+            pdfsubject={}
+}
+\makeatother
+%
+%
+%
+\titlehead{\centering\includegraphics[width=7cm]{htw-logo} } %Bild des HTW-Logos
+\subject{Diplomarbeit}
+\title{Diplomarbeitsthema hier einfügen}
+\subtitle{Untertitel }
+\author{Hier könnte dein Name stehen}
+\date{\today } %heutiges Datum
+\publishers{Verlag }
+%\thanks{Fußnote} %hier ausgeblendet, da nicht sinnvoll
 
-\begin{equation}
-a=b
-\end{equation}
-
-\begin{equation*}
-a=b
-\end{equation*}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi convallis, massa consectetur vulputate scelerisque, est purus cursus massa, sit amet auctor nunc augue eget ex. Nunc ultricies nisl tellus, eget molestie odio vestibulum quis. Phasellus rhoncus tempus quam, imperdiet imperdiet nulla ultrices non. Nulla semper venenatis lobortis. Nam sed lectus consectetur, dignissim mi vitae, rhoncus urna. Nulla facilisi. Pellentesque purus purus, pretium quis odio vitae, mattis tristique quam. Phasellus vel tortor felis. Ut efficitur massa sit amet tellus finibus malesuada. Nam sit amet commodo eros. Phasellus tempor augue a lobortis luctus. Etiam lobortis est eget magna dignissim accumsan. Curabitur non aliquet neque. Etiam neque orci, ultricies quis ultrices vel, lobortis sed tellus. Mauris volutpat non tellus sit amet vulputate. Praesent tempus dolor vel lorem ullamcorper, id elementum libero efficitur.
-Sed mi mi, eleifend sit amet tincidunt ac, eleifend quis justo. Etiam dictum iaculis justo, sit amet sagittis nunc luctus non. Etiam id aliquam ante. Maecenas gravida aliquet erat, vel suscipit urna ornare a. Etiam at ligula tortor. Praesent semper libero nisi, non ornare leo aliquet tempus. Ut maximus pharetra elementum. Integer varius hendrerit sapien, at consequat mauris mollis vel. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean aliquam pharetra est nec iaculis. Nullam lectus quam, laoreet nec libero eget, rhoncus molestie augue.
-In hac habitasse platea dictumst. Nam tempor ornare est, ac tincidunt nunc interdum et. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed volutpat magna in magna laoreet ultricies. Integer nec pellentesque nibh. Suspendisse porttitor felis id aliquet iaculis. Vivamus sodales quam nulla, quis varius dui pharetra et. Phasellus blandit ac erat ac malesuada. Etiam luctus, libero nec condimentum accumsan, nisl orci posuere quam, feugiat lacinia massa enim sed velit.
-Cras neque libero, maximus vitae lacus non, pulvinar convallis arcu. Morbi a augue sollicitudin, ullamcorper lacus et, ultricies arcu. In nec tempus ex. Suspendisse potenti. Nullam laoreet lacus in ante malesuada, id dictum libero laoreet. Sed rhoncus volutpat massa ut accumsan. Nulla at rhoncus elit. Nam blandit consequat ipsum, et commodo erat malesuada quis. Mauris suscipit hendrerit nisl et malesuada. Phasellus ac sem sapien. Suspendisse at arcu finibus, maximus tortor a, efficitur dui. Nam volutpat purus eget dignissim consectetur. Phasellus id egestas orci. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id dolor nec elit consectetur commodo non et risus. Vestibulum congue lacinia urna, quis ornare metus ultricies eu.
-Vestibulum condimentum sagittis ipsum, a dictum justo. Integer quis magna fringilla, consectetur odio at, tristique elit. Etiam tellus purus, scelerisque nec mollis ut, feugiat ac leo. Proin libero ex, ullamcorper eget vulputate vitae, molestie a mi. In vestibulum pulvinar massa, sit amet volutpat enim feugiat vitae. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi hendrerit mi hendrerit odio ultricies pulvinar. Sed eu mattis enim.
+% 1. Leerseite
+\afterpage{\blankpage}
+% ///Spezifisches Titelblatt
+\maketitle
+\newpage
+% ///Sperrvermerk
+% ///Kurzreferat/Vorwort/Abstract
+%Inhaltsverzeichnis
+% Seitenzahlen mit großen römischen Buchstaben beginnen
+\pagenumbering{Roman}
+\tableofcontents
+\newpage
+% Abkürzungsverzeichnis
+\setglossarystyle{long3col}
+\printnoidxglossaries
+\newpage
+% Verzeichnis der Formelzeichen und Symbole
+Verzeichnis der Formelzeichen und Symbole
+\newpage
+% Abbildungsverzeichnis
+\listoffigures
+\newpage
+% Tabellenverzeichnis
+\listoftables
+\newpage
+% Inhalt des Dokuments
+% Damit folgt immer die richtige Seitenzahl, auch bei zweiseitigem Druck! Siehe KOMA-Script!
+\cleardoubleoddpage
+% hier beginnt die Zählung der Seiten in arabischen Zahlen
+\pagenumbering{arabic}
+%
+%
+%
+\input{./content/vorwort.tex}%
+%
+%
+\input{./content/struktur-und-texteigenschaften.tex}%
+%
+%
+\input{./content/bilder-tabellen-formeln-referenzen.tex}%
+%
+%
+% Literatur- und Quellenverzeichnis
+Literatur- und Quellenverzeichnis
+\newpage
+%
+%
+\input{./frontbackmatter/eidesstatt-erklaerung.tex}%
+%
+% 
+% Anlagenverzeichnis
+Anlagenverzeichnis
+\newpage
+% Anlagen
+\appendix
+\newpage
+% 2. Leerseite
+\afterpage{\blankpage}
+\newpage
 \end{document}
-
-
 %Vorgaben HTW Dresden:
 %Schrift:
 %10pt Arial/Helvetica
@@ -85,22 +185,3 @@ Vestibulum condimentum sagittis ipsum, a dictum justo. Integer quis magna fringi
 %farbige Abstufungen ausschließlich in grau
 %Kopfzeile enthält Kapitelnummer und Kapitelname zentriert
 %wird erst ab Seite 2 eines Kapitels aktiv
-%Grundsätzlicher Aufbau
-% Leerseite
-% Aufgabenblatt der Hochschule (1x original, 1x Kopie)
-% ///Spezifisches Titelblatt
-% ///Sperrvermerk
-% ///Kurzreferat/Vorwort
-% Inhaltsverzeichnis
-% Abkürzungsverzeichnis
-% Verzeichnis der Formelzeichen und Symbole
-% Abbildungsverzeichnis
-% Tabellenverzeichnis
-% Inhalt des Dokuments
-% Literatur- und Quellenverzeichnis
-% ///Danksagung
-% Eidesstattliche Erklärung
-% ///Erklärung über Arbeitsanteile bei Gruppendiplomarbeiten
-% Anlagenverzeichnis
-% Anlagen
-% Leerseite
