@@ -1,7 +1,4 @@
-\input{./style/format-und-aufbau.tex}
-%
-%
-\usepackage{hyperref} % Mit dem Paket hyperref können Links innerhalb des Dokumentes im späteren PDF Format angeklickt werden und schicken einen durch das PDF, so wie es sein soll. Tolles Feature, sollten alle PDFs haben. Zusätzlich können für die verschiedenen Reader noch .. definiert werden
+\input{./style/format-und-aufbau.tex} %Alles was mit dem Format und Aufbau zu tun hat, ist hier zu finden
 %
 % 
 \usepackage{amsmath} % Das einzig wahre Paket für tolle Formeln
@@ -52,6 +49,18 @@ scientific documents}
 % benötigt?
 %
 %
+\usepackage[bookmarks=true,bookmarksnumbered=true,hypertexnames=false,breaklinks=true,linkbordercolor={0 0 1},pdfborder={0 0 1}]{hyperref} % Mit dem Paket hyperref können Links innerhalb des Dokumentes im späteren PDF Format angeklickt werden und schicken einen durch das PDF, so wie es sein soll. Tolles Feature, sollten alle PDFs haben. Zusätzlich können für die verschiedenen Reader noch .. definiert werden%
+% siehe http://www.pa.op.dlr.de/~PatrickJoeckel/pdflatex/index.html für eine tolle Hilfe
+% Angaben in die PDF-Infos uebernehmen für PDF Reader
+\makeatletter%
+\hypersetup{ % PDF-Dokument-Informationen setzen
+            pdftitle={\@title}, %Titel der Arbeit
+            pdfauthor={\@author}, %Author
+            %pdfkeywords={}, % CR-Klassifikation und ggf. weitere Stichworte
+            %pdfsubject={} %
+}%
+\makeatother%
+%
 % "Satzspiegelberechnung mit demselben DIV -Argument, das beim letzten Aufruf an gegeben wurde, erneut durchführen." laut Anleitung des KOMA-Scriptes, also tun wir das auch:
 %\KOMAoptions{DIV=last}
 % benötigt?
@@ -80,29 +89,20 @@ scientific documents}
 % Leerseite
 %
 %
-% Angaben in die PDF-Infos uebernehmen für PDF Reader
-\makeatletter
-\hypersetup{
-            pdftitle={}, %Titel der Arbeit
-            pdfauthor={}, %Author
-            pdfkeywords={}, % CR-Klassifikation und ggf. weitere Stichworte
-            pdfsubject={}
-}
-\makeatother
 %
 %
 %
 \titlehead{\centering\includegraphics[width=7cm]{htw-logo} } %Bild des HTW-Logos
 \subject{Diplomarbeit}
-\title{Diplomarbeitsthema hier einfügen}
-\subtitle{Untertitel }
-\author{Hier könnte dein Name stehen}
+\title{Diplomarbeitsthema hier einfügen} %
+\subtitle{Untertitel } %Untertitel der Diplomarbeit
+\author{Hier könnte dein Name stehen} %eigenen Namen einfügen, dieser wird automatisch in die Eidesstattliche Erklärung übernommen
 \date{\today } %heutiges Datum
 \publishers{Verlag }
 %\thanks{Fußnote} %hier ausgeblendet, da nicht sinnvoll
 
 % 1. Leerseite
-\afterpage{\blankpage}
+%\afterpage{\blankpage}
 % ///Spezifisches Titelblatt
 \maketitle
 \newpage
@@ -158,7 +158,7 @@ Anlagenverzeichnis
 \appendix
 \newpage
 % 2. Leerseite
-\afterpage{\blankpage}
+%\afterpage{\blankpage}
 \newpage
 \end{document}
 %Vorgaben HTW Dresden:

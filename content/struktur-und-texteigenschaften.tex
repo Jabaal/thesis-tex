@@ -23,19 +23,20 @@ Folgender Grundsätzlicher Aufbau der Diplomarbeit wird gefordert - von den opti
 \section{Dokumentstruktur}%
 Oft will man Kapitel oder andere Teile der Arbeit umstrukturieren. Dafür empfiehlt es sich zumindest die Kapitel in \emph{einzelne} Dateien zu packen, die man in einer Hauptdatei zusammenfügt. Einfügen solltet ihr \textsc{NUR} nach dem Muster in Tabelle \ref{tab: einfuegen}. Der Befehl \textbackslash input\{\} wirkt dabei so, als ob ihr den Code direkt in euer Dokument einfügen würdet.%
 \begin{table}[h]%
+\label{tab: einfuegen}%
 \begin{tabu} to \textwidth {X[c]X[c]}%
 \toprule%
 \textbackslash input\{./content/kapitelname.tex\} & Fügt den Tex-Code aus der Datei "`kapitelname.tex"' genau an der Stelle ein, wo der Befehl steht. Dabei liegen die Dateien im Ordner "`/content/"' in eurem Ordner mit der Datei \emph{template-htw-abschlussarbeit.tex}\\%
 \bottomrule%
 \end{tabu}%
 \caption{Einfuegen}%
-\label{tab: einfuegen}%
 \end{table}%
 %
 %
 \section{Kapitelstruktur}
 Mit folgenden Befehlen aus \ref{tab: kapitel} Strukturiert man seine Überschriften. Diese 6 Ebenen solltet ihr maximal verwenden:\\%
 \begin{table}[h]%
+\label{tab: kapitel}%
 \begin{tabu} to \textwidth {X[c]X[c]}%
 \toprule%
 \textbackslash chapter\{Name\} & 1. Name\\%
@@ -47,7 +48,6 @@ Mit folgenden Befehlen aus \ref{tab: kapitel} Strukturiert man seine Überschrif
 \bottomrule%
 \end{tabu}%
 \caption{Kapitel}%
-\label{tab: kapitel}%
 \end{table}%
 Anmerkungen zur Struktur:\\%
 \begin{itemize}%
@@ -67,30 +67,31 @@ Sofern ihr euren Text in LaTex eingebt,
 \section{Akzente setzen}%
 Für längere Akzente benutzt man \textit{kursive Schrift}. Funktioniert wie hier in \ref{tab: kursiv} zu sehen:\\%
 \begin{table}[h]%
+\label{tab: kursiv}%
 \begin{tabu} to \textwidth {X[c]X[c]}%
 \toprule%
 \textbackslash textit\{kursiv\} & \textsc{kursiv} \\%
 \bottomrule%
 \end{tabu}%
 \caption{kursiv}%
-\label{tab: kursiv}%
 \end{table}%
 %
 %
 Weil \textbf{fetter Text} mit der Schriftart \emph{Arial} hässlich aussieht und \underline{unterstreichen} mindestens genauso schäbig aussieht, verwenden wir weder fetten Text noch unterstreichen wir Wörter. Stattdessen nutzen wir \textsc{Kapitälchen} und \emph{Akzente}. \textsc{Kapitälchen funktionieren} wie in \ref{tab: kapitälchen} zu sehen:\\%
 \begin{table}[h]%
+\label{tab: kapitälchen}%
 \begin{tabu} to \textwidth {X[c]X[c]}%
 \toprule%
 \textbackslash textsc\{Kapitälchen\} & \textsc{Kapitälchen} \\%
 \bottomrule%
 \end{tabu}%
 \caption{Kapitälchen}%
-\label{tab: kapitälchen}%
 \end{table}%
 %
 %
 Um einzelne \emph{Akzent} zu setzen, nutzt man den Befehl aus \ref{tab: akzent}. Man beobachte, dass der \emph{Akzent} in kursiver Schriftumgebung anders gesetzt wird:%
 \begin{table}[h]%
+\label{tab: akzent}%
 \begin{tabu} to \textwidth {X[c]X[c]}%
 \toprule%
 \textbackslash emph\{Akzent\} & \emph{Akzent} \\%
@@ -98,7 +99,6 @@ Ein \emph{Akzent} in normaler Schriftumgebung & \textit{Ein \emph{Akzent} in kur
 \bottomrule%
 \end{tabu}%
 \caption{Akzent}%
-\label{tab: akzent}%
 \end{table}%
 %
 %
