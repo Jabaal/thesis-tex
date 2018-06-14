@@ -1,0 +1,39 @@
+%%% LITERATUR
+\usepackage[%
+	backend=biber,% biber ist neuer und offeriert mehr Stile beim zitieren
+	style=numeric,% Jedem Eintrag wird eine Nummer zugewiesen und so wird zitiert
+	sorting=none,% Literatur wird in der Zitierreihenfolge gelistet
+	citestyle=numeric-comp,% kompaktes numerisches zitieren 1-3 statt 1,2,3	
+	backref=true% ermöglicht links vom literaturverzeichnis zurück
+	]%
+	{biblatex}% Bibliographie-Management-Paket
+\addbibresource{../frontbackmatter/literatur.bib}% Dateipfad der Literatur-Datei
+%
+%
+%%% ZITIEREN
+\usepackage{csquotes}% Paket für sinnvolles Zitieren!
+%
+%
+%%% VERLINKEN
+\usepackage[% sollte immer nach Sprachen und Biliographie geladen werden!
+	bookmarks=true,% Bookmarks einschalten
+	bookmarksnumbered=true,% Erzeugt automatisch Links von Chapter, Section usw.
+	pagebackref=false,% funktioniert nicht mit biblatex - aber eine ähnliche option ist dort eingestellt
+	hypertexnames=true,% unbedingt auf true, damit biblatex zurückreferenzieren kann auf die richtige Stelle! falsche Verlinkungen zu Abbildungen usw. sollten durch besseres referenzieren gelöst werden und nicht durch Verstellen dieser option!
+	breaklinks=true,% Links können getrennt werden
+	linkbordercolor={0 0 1},% farbe der Links festlegen. Hier: Blaue links
+	pdfborder={0 0 1}]% Stärke der Linkkästchen festlegen
+	{hyperref}% Mit dem Paket hyperref können Links innerhalb des Dokumentes im späteren PDF Format angeklickt werden und schicken einen durch das PDF, so wie es sein soll. Tolles Feature, sollten alle PDFs haben. Zusätzlich können für die verschiedenen Reader noch .. definiert werden
+% siehe http://www.pa.op.dlr.de/~PatrickJoeckel/pdflatex/index.html für eine tolle Hilfe
+% Angaben in die PDF-Infos uebernehmen für PDF Reader
+\makeatletter%
+\hypersetup{% PDF-Dokument-Informationen setzen
+            pdftitle={\@title},% Titel der Arbeit
+            pdfauthor={\@author},% Author
+            %pdfkeywords={},% CR-Klassifikation und ggf. weitere Stichworte
+            %pdfsubject={}%
+}%
+\makeatother%
+%
+%
+\usepackage{bookmark}% "Adding package bookmark improves bookmarks handling. More features and faster updated bookmarks" - sollte nach hyperref geladen werden

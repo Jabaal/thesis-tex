@@ -29,13 +29,24 @@
 \addtokomafont{pagefoot}{\small} % Fußnoten etwas kleiner als die normale Schriftgröße setzen - zur Sicherheit den Befehl wiederholen - falls sich die Standard-Einstellungen ändern (safety first!)
 %
 %
+%%% SPRACHE
+\usepackage{polyglossia} % statt Babel nutzt man für xelatex polyglossia!
+\setmainlanguage[
+	variant=german, %es geht auch austrian oder swiss
+	spelling=new, %neue Rechtschreibung ein/aus
+	latesthyphen=true, %ausschalten bei bugs - neueste hyphenation
+	babelshorthands=false %Trennung wie beim grauenvollen Paket Babel ausschalten		
+	]%
+{german}%
+%
+%
 %%% SCHRIFTART
 \usepackage{fontspec} % "Normale" Schriftarten können verwendet werden (die, die auf dem PC selbst installiert sind)
 \setmainfont{Arial} % Schriftart festlegen
 %
 %
-%%% SPRACHE
-\usepackage[ngerman]{babel} % Für richtige Silben- und Worttrennung in der jeweiligen Sprache und die richtige Sprache in den automatisch generierten Verzeichnissen wird das Paket babel genutzt.
+%%% SPRACHE mit babel
+% \usepackage[ngerman]{babel} % Für richtige Silben- und Worttrennung in der jeweiligen Sprache und die richtige Sprache in den automatisch generierten Verzeichnissen wird das Paket babel genutzt.
 % Paket babel ngerman für die "neue" deutsche Sprache nutzen - eingeführt 1998, es ist 2018!
 % siehe: https://tex.stackexchange.com/questions/67549/whats-the-difference-between-ngerman-and-german-in-babel
 %

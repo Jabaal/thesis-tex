@@ -3,7 +3,7 @@
 Folgender Grundsätzlicher Aufbau der Diplomarbeit wird gefordert - von den optionalen Seiten laut Leitfaden optional ist nur das "Spezifische Titelblatt" übernommen worden:%
 \begin{itemize}%
  \item Leerseite%
- \item Aufgabenblatt der Hochschule (1x original, 1x Kopie) \emph{wird hier nicht eingefügt, da diese Kopie in der Druckerei eingefügt werden muss!}%
+ \item Aufgabenblatt der Hochschule (1x original, 1x Kopie) \emph{wird hier nicht eingefügt, da diese Kopie besser in der Druckerei eingefügt werden sollte!}%
  \item Spezifisches Titelblatt%
  \item Inhaltsverzeichnis%
  \item Abkürzungsverzeichnis%
@@ -19,24 +19,68 @@ Folgender Grundsätzlicher Aufbau der Diplomarbeit wird gefordert - von den opti
 \end{itemize}%
 %
 %
+\section{Allgemeine Texteingabe}%
+Latex setzt den Text besser als die meisten Programme. \href{https://tex.stackexchange.com/questions/110133/visual-comparison-between-latex-and-word-output-hyphenation-typesetting-ligat#110140}{Hier} und \href{http://www.rtznet.nl/zink/latex.php}{hier} sind Beispiele dazu.%
+
+Damit auch keine Fehler passieren, sollte man am Ende einer Zeile immer ein Prozentzeichen "\%" setzen. Die Begründung dazu findet man \href{https://tex.stackexchange.com/questions/7453/what-is-the-use-of-percent-signs-at-the-end-of-lines#7459}{hier}.%
+
+Falls man also innerhalb eines Kapitels eine Einrückung haben möchte, muss man nur eine Leerzeile(siehe \ref{tab: leerzeile}) einfügen.\\%
+\begin{table}[ht]%
+\begin{tabu} to \textwidth {X[c]X[c]}%
+\toprule%
+	\begin{minipage}[t]{0.4\textwidth}% minipage wird genutzt, damit die Befehle ohne Einrückung geschrieben werden können
+	Erste Zeile Latex Code\\%
+	\\%
+	Zweite Zeile Latex Code%
+	\end{minipage}%
+&%
+	\begin{minipage}[t]{0.4\textwidth}%
+	Erste Zeile Latex Code\\%
+	\hspace*{10.95pt}Zweite Zeile Latex Code% indent setzen - durch \the\parindent kann man die aktuelle Größe im Dokument ins PDF schreiben lassen
+	\end{minipage}\\%
+\bottomrule%
+\end{tabu}%
+\caption{Einrückung durch Leerzeile}%
+\label{tab: leerzeile}%
+\end{table}\\%
+%
+Einen erzwungenen Umbruch sollte man nur im äußersten Notfall gebrauchen! Dieser wird wie in \ref{tab: backslash} erzwungen, erstellt eine neue Zeile \emph{(!)} und bricht den Blocksatz ab \emph{(!)}.\\%
+\begin{table}[h]%
+\begin{tabu} to \textwidth {X[c]X[c]}%
+\toprule%
+	\begin{minipage}{0.4\textwidth}%
+	Erste Zeile Latex Code\textbackslash \textbackslash Zweite Zeile Latex Code
+	\end{minipage}%
+&%
+	\begin{minipage}{0.4\textwidth}%
+	Erste Zeile Latex Code\\%
+	\noindent Zweite Zeile Latex Code%
+	\end{minipage}\\%
+\bottomrule%
+\end{tabu}%
+\caption{Erzwungener Zeilenumbruch}%
+\label{tab: backslash}%
+\end{table}\\%
+Befolgt man diese Ratschläge, muss man sich so gut wie keine Gedanken machen, um die Formatierung.
+%
 %
 \section{Dokumentstruktur}%
 Oft will man Kapitel oder andere Teile der Arbeit umstrukturieren. Dafür empfiehlt es sich zumindest die Kapitel in \emph{einzelne} Dateien zu packen, die man in einer Hauptdatei zusammenfügt. Einfügen solltet ihr \textsc{NUR} nach dem Muster in Tabelle \ref{tab: einfuegen}. Der Befehl \textbackslash input\{\} wirkt dabei so, als ob ihr den Code direkt in euer Dokument einfügen würdet.%
 \begin{table}[h]%
-\label{tab: einfuegen}%
+
 \begin{tabu} to \textwidth {X[c]X[c]}%
 \toprule%
-\textbackslash input\{./content/kapitelname.tex\} & Fügt den Tex-Code aus der Datei "`kapitelname.tex"' genau an der Stelle ein, wo der Befehl steht. Dabei liegen die Dateien im Ordner "`/content/"' in eurem Ordner mit der Datei \emph{template-htw-abschlussarbeit.tex}\\%
+\textbackslash input\{./content/kapitelname.tex\} & Fügt den Tex-Code aus der Datei "kapitelname.tex" genau an der Stelle ein, wo der Befehl steht. Dabei liegen die Dateien im Ordner "/content/" in dem Ordner mit der Datei \emph{main-htw-abschlussarbeit.tex}\\%
 \bottomrule%
 \end{tabu}%
-\caption{Einfuegen}%
+\caption{Dokumentstruktur durch Einfügen}%
+\label{tab: einfuegen}%
 \end{table}%
 %
 %
-\section{Kapitelstruktur}
-Mit folgenden Befehlen aus \ref{tab: kapitel} Strukturiert man seine Überschriften. Diese 6 Ebenen solltet ihr maximal verwenden:\\%
+\section{Kapitelstruktur}%
+Mit folgenden Befehlen aus \ref{tab: kapitelstruktur} Strukturiert man seine Überschriften. Diese 6 Ebenen solltet ihr maximal verwenden.\\%
 \begin{table}[h]%
-\label{tab: kapitel}%
 \begin{tabu} to \textwidth {X[c]X[c]}%
 \toprule%
 \textbackslash chapter\{Name\} & 1. Name\\%
@@ -47,58 +91,63 @@ Mit folgenden Befehlen aus \ref{tab: kapitel} Strukturiert man seine Überschrif
 \textbackslash subparagraph\{Name\} & 1.1.1.1.1.1 Name \\%
 \bottomrule%
 \end{tabu}%
-\caption{Kapitel}%
+\caption{Kapitelstruktur}%
+\label{tab: kapitelstruktur}%
 \end{table}%
 Anmerkungen zur Struktur:\\%
 \begin{itemize}%
-\item Außer die voreingestellten nicht nummerierten Kapiteln werden alle Kapitel nummeriert in einer Abschlussarbeit!%
+\item Außer den voreingestellten nicht nummerierten Kapiteln werden alle Kapitel nummeriert in einer Abschlussarbeit! Eine Ausnahme bildet der Anhang - weitere Informationen findet ihr im \ref{chap: anhang}%
 \item Ein Unterpunkt benötigt mindestens zwei Einträge! Auf \textbackslash chapter\{\} müssen also mindestens zwei \textbackslash section\{\} folgen, damit ein Einfügen von \textbackslash section\{\} berechtigt ist!%
 \item Änderungen der Kapitelstruktur sind \emph{sofort} im linken Übersichtsbereich von \emph{TexMaker} unter \textsc{structure} sichtbar, yay!%
 \item Bei Änderungen der Kapitelstruktur muss man \emph{zwei Mal kompilieren}, damit man die Änderung auch im PDF sieht!%
 \end{itemize}%
 %
 %
-%
-\section{Absätze}%
-Sofern ihr euren Text in LaTex eingebt, 
-%
-%
-%
 \section{Akzente setzen}%
-Für längere Akzente benutzt man \textit{kursive Schrift}. Funktioniert wie hier in \ref{tab: kursiv} zu sehen:\\%
+Für längere Akzente benutzt man \textit{kursive Schrift}. Funktioniert wie hier in \ref{tab: kursiv} zu sehen:%
+%
 \begin{table}[h]%
-\label{tab: kursiv}%
 \begin{tabu} to \textwidth {X[c]X[c]}%
 \toprule%
 \textbackslash textit\{kursiv\} & \textsc{kursiv} \\%
 \bottomrule%
 \end{tabu}%
-\caption{kursiv}%
+\caption{Kursiv}%
+\label{tab: kursiv}%
 \end{table}%
 %
-%
-Weil \textbf{fetter Text} mit der Schriftart \emph{Arial} hässlich aussieht und \underline{unterstreichen} mindestens genauso schäbig aussieht, verwenden wir weder fetten Text noch unterstreichen wir Wörter. Stattdessen nutzen wir \textsc{Kapitälchen} und \emph{Akzente}. \textsc{Kapitälchen funktionieren} wie in \ref{tab: kapitälchen} zu sehen:\\%
+Weil \textbf{fetter Text} mit der Schriftart \emph{Arial} innerhalb eines Textes wirklich fies aussieht und \underline{unterstreichen} mindestens ebenso schäbig aussieht, verwenden wir weder fetten Text noch unterstreichen wir Wörter. Stattdessen nutzen wir \textsc{Kapitälchen} und \emph{Akzente}. \textsc{Kapitälchen funktionieren} wie in \ref{tab: kapitälchen} zu sehen:\\%
 \begin{table}[h]%
-\label{tab: kapitälchen}%
 \begin{tabu} to \textwidth {X[c]X[c]}%
 \toprule%
 \textbackslash textsc\{Kapitälchen\} & \textsc{Kapitälchen} \\%
 \bottomrule%
 \end{tabu}%
 \caption{Kapitälchen}%
+\label{tab: kapitälchen}%
 \end{table}%
-%
 %
 Um einzelne \emph{Akzent} zu setzen, nutzt man den Befehl aus \ref{tab: akzent}. Man beobachte, dass der \emph{Akzent} in kursiver Schriftumgebung anders gesetzt wird:%
 \begin{table}[h]%
-\label{tab: akzent}%
 \begin{tabu} to \textwidth {X[c]X[c]}%
 \toprule%
 \textbackslash emph\{Akzent\} & \emph{Akzent} \\%
 Ein \emph{Akzent} in normaler Schriftumgebung & \textit{Ein \emph{Akzent} in kursiver Schriftumgebung}\\%
 \bottomrule%
 \end{tabu}%
-\caption{Akzent}%
+\caption{Akzente}%
+\label{tab: akzent}%
+\end{table}%
+%
+Für Tabellenüberschriften benötigt man gelegentlich doch eine fette Schriftart. In Tabelle \ref{tab: fett} findet man den Befehl dazu. Kapitelüberschriften und einige andere Formatierungen sind übrigens ebenso von dieser Regel ausgenommen.%
+\begin{table}[h]%
+\begin{tabu} to \textwidth {X[c]X[c]}%
+\toprule%
+\textbackslash textbf\{fett\} & \textbf{fett} \\%
+\bottomrule%
+\end{tabu}%
+\caption{Fette Schrift}%
+\label{tab: fett}%
 \end{table}%
 %
 %

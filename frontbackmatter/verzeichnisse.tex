@@ -1,0 +1,27 @@
+%%% INHALTSVERZEICHNIS
+\pagenumbering{Roman}% Seitenzahlen mit großen römischen Buchstaben beginnen
+\pdfbookmark[section]{\contentsname}{toc} %Fügt in der Navigation (und nur in der PDF-Datei!) den Eintrag Inhaltsverzeichnis hinzu
+\tableofcontents% Inhaltsverzeichnis erstellen
+\newpage% 
+%
+%
+%%% ABKÜRZUNGSVERZEICHNIS
+\setglossarystyle{long3col}% Stil festlegen
+\printnoidxglossaries%
+\newpage%
+%
+%
+% Verzeichnis der Formelzeichen und Symbole
+Verzeichnis der Formelzeichen und Symbole%
+Hier muss unbedingt noch mit Glossaries gearbeitet werden. nomencl ist einfach zu schwach.%
+\newpage%
+%
+%
+%%% ABBILDUNGSVERZEICHNIS
+\listoffigures% Erstellt das Abbildungsverzeichnis
+\newpage%
+%
+%
+%%% TABELLENVERZEICHNIS
+\listoftables% Erstellt das Tabellenverzeichnis
+\newpage%
