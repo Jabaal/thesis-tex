@@ -21,6 +21,23 @@ breaklines=true
 }
 %
 %
+%\usepackage[intoc]{nomencl}%Paket für Symbole und Formelzeichen
+%
+%
+% tabu Paket, damit man eine Tabelle einfach so auf die Breite des Textfeldes einstellen kann.
+% Alternativ tabularx?
+\usepackage{tabu}
+%
+%eventuell longtabs?
+\usepackage{booktabs} % booktabs für schönere Tabellen
+% benötigt?
+%
+%
+%%% LADEN UND KONFIGURIEREN ALLER BENÖTIGTEN PAKETE
+\input{./style/pakete.tex}
+%
+%
+%%% GLOSSARIES MUSS NACH HYPERREF GELADEN WERDEN
 % Das Paket glossaries wird benötigt, um das Abkürzungsverzeichnis und das Verzeichnis für Formelzeichen und Symbole zu erstellen. Die Option toc heißt, dass diese im Inhaltsverzeichnis gelistet werden.
 %\usepackage[toc,acronym]{glossaries}
 % Mehr Optionen und Stile laden
@@ -41,22 +58,6 @@ breaklines=true
     description={Is a mark up language specially suited for 
 scientific documents}
 }
-%
-%
-%\usepackage[intoc]{nomencl}%Paket für Symbole und Formelzeichen
-%
-%
-% tabu Paket, damit man eine Tabelle einfach so auf die Breite des Textfeldes einstellen kann.
-% Alternativ tabularx?
-\usepackage{tabu}
-%
-%eventuell longtabs?
-\usepackage{booktabs} % booktabs für schönere Tabellen
-% benötigt?
-%
-%
-%%% LADEN UND KONFIGURIEREN ALLER BENÖTIGTEN PAKETE
-\input{./style/pakete.tex}
 %
 %
 % "Satzspiegelberechnung mit demselben DIV -Argument, das beim letzten Aufruf an gegeben wurde, erneut durchführen." laut Anleitung des KOMA-Scriptes, also tun wir das auch:
@@ -97,8 +98,5 @@ scientific documents}
 %%% ANLAGEN
 \input{./frontbackmatter/anlagen.tex}%
 %
-%%% LEERSEITE AM ENDE EINFÜGEN
-%\afterpage{\blankpage} %fügt eine Leerseite ohne Nummerierung ein - für den zweiseitigen Druck eventuell nötig
-%\newpage
 %
 \end{document}% beendet das Dokument
