@@ -67,7 +67,6 @@ Befolgt man diese Ratschläge, muss man sich so gut wie keine Gedanken machen, u
 \section{Dokumentstruktur}%
 Oft will man Kapitel oder andere Teile der Arbeit umstrukturieren. Dafür empfiehlt es sich zumindest die Kapitel in \emph{einzelne} Dateien zu packen, die man in einer Hauptdatei zusammenfügt. Einfügen solltet ihr \textsc{NUR} nach dem Muster in Tabelle \ref{tab: einfuegen}. Der Befehl \textbackslash input\{\} wirkt dabei so, als ob ihr den Code direkt in euer Dokument einfügen würdet.%
 \begin{table}[h]%
-
 \begin{tabu} to \textwidth {X[c]X[c]}%
 \toprule%
 \textbackslash input\{./content/kapitelname.tex\} & Fügt den Tex-Code aus der Datei "kapitelname.tex" genau an der Stelle ein, wo der Befehl steht. Dabei liegen die Dateien im Ordner "/content/" in dem Ordner mit der Datei \emph{main-htw-abschlussarbeit.tex}\\%
@@ -139,7 +138,7 @@ Ein \emph{Akzent} in normaler Schriftumgebung & \textit{Ein \emph{Akzent} in kur
 \label{tab: akzent}%
 \end{table}%
 %
-Für Tabellenüberschriften benötigt man gelegentlich doch eine fette Schriftart. In Tabelle \ref{tab: fett} findet man den Befehl dazu. Kapitelüberschriften und einige andere Formatierungen sind übrigens ebenso von dieser Regel ausgenommen.%
+Für Tabellenüberschriften benötigt man gelegentlich doch eine fette Schriftart. In Tabelle \ref{tab: fett} findet man den Befehl dazu. Kapitelüberschriften und einige andere Formatierungen sind übrigens ebenso von dieser Regel ausgenommen.\\%
 \begin{table}[h]%
 \begin{tabu} to \textwidth {X[c]X[c]}%
 \toprule%
@@ -152,6 +151,6 @@ Für Tabellenüberschriften benötigt man gelegentlich doch eine fette Schriftar
 %
 %
 \section{Besondere Zeichen}%
-Quotation, da sonst Fehler entstehen, eventuell csquotes?\\%
+Quotation, vorher festlegen mit csquotes, da sonst Fehler entstehen\\%
 wichtige sonderzeichen listen (zum beispiel textbackslash usw.)\\%
-restliche zeichen sind in TexMaker zu finden.%
+Viele andere Zeichen, die nur in der Mathematik-Umgebung funktionieren, findet ihr in TexMaker auf der linken Seite unter den Zeichen \emph{Relation symbols} (Symbol: $\div$), \emph{Arrow symbols} (Symbol: $\Rightarrow$), \emph{Miscellaneous symbols} (Symbol: $\forall$), \emph{Delimiters} (Symbol: $\lbrace\rbrace$) und \emph{Greek letters} (Symbol: $\lambda$).%
