@@ -29,8 +29,15 @@ Beschrieben wird die Installation und Einrichtung quick and dirty für einen Win
       - Damit Glossare wie z.B. das Abkürzungsverzeichnis erstellt werden können, muss man noch unter *User > User commands > Edit User Commands* einen Eintrag hinzufügen und die Felder wie folgt ausfüllen:
         - Menu Item: `makeglossaries`
         - Command: `makeglossaries %`
-      - Für Biblatex muss man noch den Eintrag unter *Options-> Configure Texmaker* im Reiter *Commands* in `biber %` ändern.
-  -[Active-Pearl herunterladen](https://www.activestate.com/activeperl/downloads) *meine Version:5.24.3.2404 x64*
+      - Für Biblatex lauten die Felder wie folgt:
+        - Menu Item: `biblatex`
+        - Command:`biber %`
+      - Folgende Befehle solltet ihr nun für das Zitieren unter *User -> User Tags -> Edit User Tags* hinzufügen. Diese Befehle ruft ihr anschließend mit `SHIFT+F1...F4` auf. Die Zeichen werden über eine Tastenkombination über ALT+NUMPAD-Zahlenreihe eingegeben oder aus diesem Text kopiert und eingefügt. Die folgenden Zeilen enthalten jeweils drei Teile in der entsprechenden Reihenfolge - *Menu Item* *Latex Content* *Tastenkombination*. Aus diesen solltet ihr insgesamt 4 *User Tags* erstellen:
+        - `open guillemets` `»` `ALT+175`
+        - `close guillemets` `«` `ALT+174`
+        - `open single guillemets` `›` `ALT+0155`
+        - `close single guillemets` `‹` `ALT+0139`        
+  -[Active-Pearl herunterladen](https://www.activestate.com/activeperl/downloads) *meine Version:5.24.3.2404 x64* (sonst funktionieren die Glossare nicht)
     - Pearl installieren
     - Verzeichnis nicht ändern, *File extension* und *PATH* zum Pearl-Interpreter angekreuzt lassen
     - eventuelle Schwierigkeiten mittels [dieser Anleitung](https://tex.stackexchange.com/questions/158796/miktex-and-perl-scripts-and-one-python-script) korrigieren
@@ -45,40 +52,26 @@ Wer direkt anfangen möchte, kann das nächste Kapitel überspringen.
 - Eine Übersicht zu den Glossar-Stilen gibt es [hier](https://www.dickimaw-books.com/gallery/)
 - Eine tolle Linksammlung zu allen möglichen Themen gibt es [hier](https://tu-dresden.de/mn/math/stochastik/das-institut/beschaeftigte/jan-rudl/latex_win). Gerade zum hyperref-Paket findet man dort alles Wichtige.
 - Eine Kurzanleitung zum hyperref-Paket gibt es [hier](http://www.pa.op.dlr.de/~PatrickJoeckel/pdflatex/index.html)
+- Für eine Übersicht der Symbole habe ich [hier](/docs/symbols-a4.pdf) eine PDF hinterlegt. [CTAN Latex-Symbole](http://www.ctan.org/tex-archive/info/symbols/comprehensive/symbols-a4.pdf)
 
 ### Diplomarbeit beginnen
 Informationen zu Abschlussarbeiten der Fakultät Elektrotechnik gibt es auf der [Seite der Fakultät Elektrotechnik der HTW Dresden](https://www.htw-dresden.de/fakultaet-elektrotechnik/fakultaet/studierende/abschlussarbeiten.html) und auch im [OPAL](https://bildungsportal.sachsen.de/opal/auth/RepositoryEntry/16966647814/CourseNode/97409953057309?5).
 Nun noch das [Template](/template-htw-abschlussarbeit.tex) herunterladen und falls nötig die [Quick'n'Dirty Anleitung](/readme/quickndirty-anleitung.pdf) herunterladen, lesen und verinnerlichen.
 Anschließend steht mit dem [Cheat-Sheet](/readme/cheatsheet-quickanddirty.pdf) eine Übersicht der wichtigsten Befehle zur Verfügung.
 
-To Do - latex files aufteilen für eine größere übersicht im dokument:
+Autor und Titel werden automatisch in die PDF-Dokument-Informationen übernommen. Wer es ganz genau machen will, kann auch noch Stichworte und Subjekt hinzufügen - das geht in der Datei [pakete.tex](/style/pakete.tex). Einfach auskommentieren und Stichworte/Subjekt hinzufügen.
 
-frontback: abkuerzungen, literatur, formelzeichen-und-symbole, anhang, titelseite, eidesstatt-erklaerung
-style: form-und-aufbau, usepackage *in der richtigen Reihenfolge*
-gfx: alle bilder
-content: die einzelnen kapitel
 
+
+Eventuelle to-do's:
 Kommando zum Kompilieren für alles erstellen. Mit xelatex, Glossaries, Biblatex, 2x Xelatex und view pdf.
 Anschließend Readme aktualisieren, Links für die Dokumentation einfügen.
 
-Richtige Reihenfolge Dokumentieren für usepackage
-- hyperref ganz am ende!!!
-
-Bibliographie erstellen und einfügen inklusive von Beispielen.
-
 tabularx statt tabu verwenden? wenn ja, warum, wenn nein, warum nicht?
 longtable unbedingt noch einfügen
-
-Hyperref soll an die richtigen Textstellen verlinken, aber wie?
-- hyperref laberei ins dokument hinzufügen
-- Autor und Titel werden automatisch in die PDF-Dokument-Informationen übernommen. Wer es ganz genau machen will, kann auch noch Stichworte und Subjekt hinzufügen - das geht in der Datei [pakete.tex](/style/pakete.tex). Einfach auskommentieren und Stichworte/Subjekt hinzufügen.
 
 eventuell das requirepackage einfügen von overleaf/uni stuttgart tex-file - um fehler zu verhindern. - link zum TUD/Uni-Stuttgart template einfügen
 
 cheatsheet vollständig befüllen
 
 eventuell seitenränder mit geometry anpassen
-
-footnotes beschreiben - funktionieren diese auch mit hyperref?
-
-nomencl funktioniert nur so halb - deshalb doch glossaries benutzen!

@@ -3,7 +3,7 @@
 %
 %
 %%% MATHEMATIK
-\usepackage{amsmath} % Das einzig wahre Paket für tolle Formeln
+\usepackage{amsmath}% Das einzig wahre Paket für tolle Formeln
 %
 %
 %%% BILDER
@@ -11,6 +11,17 @@
 \graphicspath{{./gfx/}}% Pfad für die Bilder festlegen - relativ zum Haupttex-file
 %
 %
+%%% TABELLEN
+% tabu Paket, damit man eine Tabelle einfach so auf die Breite des Textfeldes einstellen kann.
+% Alternativ tabularx?
+\usepackage{tabu}%
+%
+%eventuell longtabs?
+\usepackage{booktabs}% booktabs für schönere Tabellen
+%benötigt?
+%
+%
+%%% LISTINGS FÜR CODE IN TABELLEN (OPT)
 % Das Paket listings wird benötigt, um line-breaks zu haben, wenn man normalen .tex-code eingibt
 % weiteres dazu: https://tex.stackexchange.com/questions/121601/automatically-wrap-the-text-in-verbatim?noredirect=1&lq=1
 \usepackage{listings}
@@ -21,20 +32,8 @@ breaklines=true
 }
 %
 %
-%\usepackage[intoc]{nomencl}%Paket für Symbole und Formelzeichen
-%
-%
-% tabu Paket, damit man eine Tabelle einfach so auf die Breite des Textfeldes einstellen kann.
-% Alternativ tabularx?
-\usepackage{tabu}
-%
-%eventuell longtabs?
-\usepackage{booktabs} % booktabs für schönere Tabellen
-% benötigt?
-%
-%
 %%% LADEN UND KONFIGURIEREN ALLER BENÖTIGTEN PAKETE
-\input{./style/pakete.tex}
+\input{./style/pakete.tex}%
 %
 %
 %%% GLOSSARIES MUSS NACH HYPERREF GELADEN WERDEN
@@ -67,11 +66,6 @@ scientific documents}
 %
 \begin{document}%Beginnt das Dokument, ab hier muss man selbst etwas tun
 %
-%\afterpage{\blankpage} %fügt eine Leerseite ohne Nummerierung ein. Wird das wirklich benötigt?
-%
-%%% SPEZIFISCHES TITELBLATT
-\input{./frontbackmatter/titel.tex}
-%
 %%% VERZEICHNISSE
 \input{./frontbackmatter/verzeichnisse.tex}
 %
@@ -91,12 +85,6 @@ scientific documents}
 	heading=bibintoc% Die Überschrift zum Inhaltsverzeichnis hinzufügen
 	]
 \newpage%
-%
-%%% EIDESSTATTLICHE ERKLÄRUNG
-\input{./frontbackmatter/eidesstatt-erklaerung.tex}%
-%
-%%% ANLAGEN
-\input{./frontbackmatter/anlagen.tex}%
 %
 %
 \end{document}% beendet das Dokument

@@ -11,7 +11,13 @@
 %
 %
 %%% ZITIEREN
-\usepackage[autostyle,german=quotes]{csquotes}% Paket für sinnvolles Zitieren!
+\usepackage[%
+	autostyle=true,% adaptiert den Quotation-Style durchgehend anhand der aktuell benutzten Sprache
+	german=guillemets% Deutsche Sprache - entweder quotes (Anführungszeichen) oder guillemets (Anführungsstriche) 
+	]{csquotes}% Paket für sinnvolles Zitieren!
+\MakeAutoQuote{»}{«}% Zitierbefehle neu definieren, Shift+F1 und Shift+F2
+\MakeAutoQuote*{›}{‹}% Shift+F3 und Shift+F4
+\SetCiteCommand{\autocite}%
 %
 %
 %%% VERLINKEN

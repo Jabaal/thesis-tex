@@ -1,4 +1,4 @@
-\chapter{Bilder, Tabellen, Formeln und ihre Referenzen}%
+\chapter{Bilder, Tabellen, Formeln}%
 %
 %
 \section{Label und Referenzen}%
@@ -10,7 +10,7 @@
 %
 %
 \section{Bilder}%
-Bilder müssen wie auch Tabellen zum sinnvollen Beschriften und Referenzieren in eine Umgebung geschrieben werden. Nur so kann man Bilder referenzieren (siehe \ref{sec: labandref} und sie wie auch Tabellen benennen (siehe \ref{sec: tables}.%
+Bilder müssen wie auch Tabellen zum sinnvollen Beschriften und Referenzieren in eine Umgebung geschrieben werden. Nur so kann man Bilder referenzieren (siehe \ref{sec: labandref} und sie wie auch Tabellen benennen (siehe \ref{sec: tables}).\\%
 
 \begin{figure}[h]%
     \includegraphics[width=0.25\textwidth]{stura-logo-htw.pdf}%
@@ -62,6 +62,7 @@ Damit sollten die wichtigsten Arten für Mathematik in der Diplomarbeit abgedeck
 %
 %
 \section{Literatur}%
+\label{sec: literatur}
 Die Literatur schreibt man in die Datei \emph{literatur.bib}, welche relativ zu eurem Template im Verzeichnis \emph{/frontbackmatter/} liegt. Hier kommt euch \emph{TexMaker} zu Hilfe, denn unter \emph{Bibliography -> biblatex} findet man Verschiedene Arten von Literatur, die man mit einem Klick hinzufügen kann.%
 
 Dabei sollte man beachten, dass zwischen den einzelnen Quellen unbedingt eine \textsc{Leerzeile} sein sollte, da es sonst eventuell zu Problemen beim Referenzieren kommt.%
@@ -72,7 +73,8 @@ Anschließend kann man mit der Option \emph{Bibliography -> Clean} alle optional
 %
 %
 \section{Zitieren}%
-Nachdem man seine Quellen dem Literaturverzeichnis hinzugefügt hat und diese mit \emph{Keys} versehen hat versehen hat, kann man diese anschließend Zitieren.%
+\label{sec: zitieren}
+Nachdem man seine Quellen dem Literaturverzeichnis hinzugefügt hat (\ref{sec: literatur})und diese mit \emph{Keys} versehen hat versehen hat, kann man diese anschließend Zitieren.%
 Für indirekte Zitate muss man nur die Quelle am Ende des Absatzes/Satzes angeben. Wie das geht, sieht man in \ref{tab: indirekteszitat}. Bemerkungen kann man einfügen, muss man aber nicht. Als \emph{Notiz nachher} empfiehlt es sich, z.B. eine Seitenzahl anzugeben wie hier am Ende des Satzes zu sehen. \cite[][S.22 ff]{einstein}
 \begin{table}[h]%
 \begin{tabu} to \textwidth {X[c]X[c]}%
@@ -84,7 +86,23 @@ Hier steht ein indirektes Zitat.\textbackslash cite[Notiz vorher][Notiz nachher]
 \label{tab: indirekteszitat}%
 \end{table}%
 
-Für wörtliche Zitate nutzt man den Befehl aus \ref{tab: woertlicheszitat}. Mit diesem Befehl werden Zitate nicht nur in Anführungszeichen gesetzt, sondern auch automatisch in Blöcke geschrieben, sobald sie 3 Zeilen überschreiten.
+Manchmal möchte man unbedingt manuell Anführungszeichen setzen, wie in \ref{tab: quotationmarks} zu sehen. Man beachte, dass man immer ein Zitat öffnen und schließen muss. Auf ein \guillemotright \space sollte immer später ein \guillemotleft \space folgen, da es sonst zu Fehlern beim Kompilieren kommt.\\%
+\begin{table}[h]%
+\begin{tabu} to \textwidth {X[c]X[c]X[c]}%
+\toprule%
+\textbf{Tastenkombination} & \textbf{Latex Code} & \textbf{Befehl}\\%
+\midrule%
+SHIFT+F1 & \guillemotright & Anführungszeichen doppelt öffnen\\ %
+SHIFT+F2 & \guillemotleft & Anführungszeichen doppelt schließen\\%
+SHIFT+F3 & \guilsinglright & Anführungszeichen einfach öffnen\\%
+SHIFT+F4 & \guilsinglleft & Anführungszeichen einfach schließen\\%
+\bottomrule%
+\end{tabu}%
+\caption{Manuelle Anführungszeichen}%
+\label{tab: quotationmarks}%
+\end{table}%
+
+Für wörtliche Zitate nutzt man den Befehl aus \ref{tab: woertlicheszitat}. Mit diesem Befehl werden Zitate entweder in Anführungszeichen gesetzt oder automatisch in Blöcke geschrieben, sobald sie 3 Zeilen überschreiten. Möchte man Anführungszeichen trotz Blockschreibweise haben, so fügt man die Anführungszeichen aus \ref{tab: quotationmarks} hinzu.\\%
 \begin{table}[h]%
 \begin{tabu} to \textwidth {X[c]X[c]}%
 \toprule%
@@ -95,7 +113,7 @@ Für wörtliche Zitate nutzt man den Befehl aus \ref{tab: woertlicheszitat}. Mit
 \label{tab: woertlicheszitat}%
 \end{table}%
 
-Die Auslassungspunkte, die man häufig beim Zitieren verwendet, entstehen folgendermaßen (siehe \ref{tab: auslassungspunkte}):
+Die Auslassungspunkte, die man häufig beim Zitieren verwendet, entstehen folgendermaßen (siehe \ref{tab: auslassungspunkte}):\\%
 \begin{table}[h]%
 \begin{tabu} to \textwidth {X[c]X[c]}%
 \toprule%
