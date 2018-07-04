@@ -75,3 +75,16 @@ eventuell das requirepackage einfügen von overleaf/uni stuttgart tex-file - um 
 cheatsheet vollständig befüllen
 
 eventuell seitenränder mit geometry anpassen
+
+
+Befehle einfügen
+u.a.
+\tabularnewline
+\midrule
+\textwidth
+command:
+insert gfx
+table außenumgebung
+longtable
+evtl. quotationmarks nur in öffnen und schließen hinzufügen
+kleine quotationmarks löschen aus den user-commands

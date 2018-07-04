@@ -2,25 +2,6 @@
 \input{./style/format-und-aufbau.tex}% Alles was mit dem Format und Aufbau zu tun hat, ist hier zu finden
 %
 %
-%%% MATHEMATIK
-\usepackage{amsmath}% Das einzig wahre Paket für tolle Formeln
-%
-%
-%%% BILDER
-\usepackage{graphicx}% Paket für sinnvolles einfügen von Grafiken
-\graphicspath{{./gfx/}}% Pfad für die Bilder festlegen - relativ zum Haupttex-file
-%
-%
-%%% TABELLEN
-% tabu Paket, damit man eine Tabelle einfach so auf die Breite des Textfeldes einstellen kann.
-% Alternativ tabularx?
-\usepackage{tabu}%
-%
-%eventuell longtabs?
-\usepackage{booktabs}% booktabs für schönere Tabellen
-%benötigt?
-%
-%
 %%% LISTINGS FÜR CODE IN TABELLEN (OPT)
 % Das Paket listings wird benötigt, um line-breaks zu haben, wenn man normalen .tex-code eingibt
 % weiteres dazu: https://tex.stackexchange.com/questions/121601/automatically-wrap-the-text-in-verbatim?noredirect=1&lq=1
@@ -36,28 +17,10 @@ breaklines=true
 \input{./style/pakete.tex}%
 %
 %
-%%% GLOSSARIES MUSS NACH HYPERREF GELADEN WERDEN
-% Das Paket glossaries wird benötigt, um das Abkürzungsverzeichnis und das Verzeichnis für Formelzeichen und Symbole zu erstellen. Die Option toc heißt, dass diese im Inhaltsverzeichnis gelistet werden.
-%\usepackage[toc,acronym]{glossaries}
-% Mehr Optionen und Stile laden
-\usepackage{glossaries-extra}
-\usepackage{glossary-longbooktabs} %benötigt?
-\usepackage{glossaries-extra-stylemods} %benötigt?
-% Nun noch die Verzeichnisse erstellen - ohne index - muss verbessert werden
-\makenoidxglossaries 
-% neue Einträge erstellen
-\newglossaryentry{formula}
-{
-    name=formula,
-    description={A mathematical expression}
-}
-\newglossaryentry{latex}
-{
-    name=latex,
-    description={Is a mark up language specially suited for 
-scientific documents}
-}
-%
+%%% ABKÜRZUNGEN
+%\input{./frontbackmatter/abkuerzungen.tex}
+%%% FORMELZEICHEN UND SYMBOLE
+%\input{./frontbackmatter/formelzeichenundsymbole.tex}
 %
 % "Satzspiegelberechnung mit demselben DIV -Argument, das beim letzten Aufruf an gegeben wurde, erneut durchführen." laut Anleitung des KOMA-Scriptes, also tun wir das auch:
 %\KOMAoptions{DIV=last}
@@ -66,11 +29,11 @@ scientific documents}
 %
 \begin{document}%Beginnt das Dokument, ab hier muss man selbst etwas tun
 %
-%%% VERZEICHNISSE
-\input{./frontbackmatter/verzeichnisse.tex}
+%%% VERZEICHNISSE erstellen
+\input{./frontbackmatter/verzeichnisse.tex}%
 %
 %%% INHALT
-\cleardoubleoddplainpage% Bei Zweiseitigem Druck wird so IMMER der Inhalt auf der rechten Seite gestartet und falls nötig eine Seite ohne Titel, aber mit Fuß eingefügt. Sieht einfach besser aus. \cleardoubleoddemptypage fügt leere Seite ein.
+%\cleardoubleoddplainpage% Bei Zweiseitigem Druck wird so IMMER der Inhalt auf der rechten Seite gestartet und falls nötig eine Seite ohne Titel, aber mit Fuß eingefügt. Sieht einfach besser aus. \cleardoubleoddemptypage fügt leere Seite ein.
 \pagenumbering{arabic}% hier beginnt die Zählung der Seiten in arabischen Zahlen
 %
 \input{./content/vorwort.tex}%
@@ -78,6 +41,8 @@ scientific documents}
 \input{./content/struktur-und-texteigenschaften.tex}%
 %
 \input{./content/bilder-tabellen-formeln-referenzen.tex}%
+%
+%
 %
 %%% LITERATUR- UND QUELLENVERZEICHNIS
 \cleardoubleoddplainpage% Titel, aber nicht Fuß unterdrückt - und eine Leere Seite vor der Bibliographie, so dass diese Rechts startet

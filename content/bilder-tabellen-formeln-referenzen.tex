@@ -2,67 +2,69 @@
 %
 %
 \section{Label und Referenzen}%
-\label{sec: labandref}%
-%
-%
-\section{Tabellen}%
-\label{sec: tables}%
-%
+\label{sec: label}%
+Damit man auf bestimmte Teile der Arbeit verlinken kann, muss man \emph{Label} setzen. Dabei kann man auf verschiedene Dinge zeigen (\emph{referenzieren}), z.B. eine Seite, ein Kapitel, eine Tabelle oder ein Bild. Die Befehle aus Tabelle~\ref{tab: referenzieren} bleiben dabei gleich, nur die Positionierung ändert sich.%
+
+Dabei empfiehlt es sich, den \emph{Labels} sinnvolle Präfixe zu geben. Bilder kann man z.B. mit »\emph{fig:}« und Tabellen mit »\emph{tab:}« benennen. Man beachte die \emph{Tilde (\textasciitilde)} beim anschließenden Referenzieren.%
+
+{\tabulinesep=1.2mm%
+\begin{table}[!hbt]%
+\caption{Label und Referenzen}%
+\label{tab: referenzieren}%
+\begin{tabu} to \textwidth {X[l]X[l]X[l]}%
+\toprule%
+\textbf{Bezeichnung} & \textbf{Latex Code} & \textbf{Ausgabe/\emph{Beschreibung}}\tabularnewline%
+\midrule%
+Label setzen & \textbackslash label\{chap: vorwort\} & \textit{setzt ein Label mit dem Namen \emph{chap: vorwort}. Dies wurde im Quellcode bereits vorgenommen.}\tabularnewline
+Referenz aufrufen & Kapitel\textasciitilde\textbackslash ref\{chap: vorwort\} & Kapitel~\ref{chap: vorwort}\tabularnewline
+\bottomrule%
+\end{tabu}%
+\end{table}%
+}
 %
 \section{Bilder}%
-Bilder müssen wie auch Tabellen zum sinnvollen Beschriften und Referenzieren in eine Umgebung geschrieben werden. Nur so kann man Bilder referenzieren (siehe \ref{sec: labandref} und sie wie auch Tabellen benennen (siehe \ref{sec: tables}).\\%
+Um Bilder zu platzieren, müssen diese in eine Umgebung geschrieben werden. In dieser Umgebung platziert man dann das Bild, die Positionierung/Größe/Verschiebung des Bildes, die Beschriftung und den Link. In Tabelle~\ref{tab: abbildung} sind die Befehle in einem Beispiel gelistet.%
 
-\begin{figure}[h]%
-    \includegraphics[width=0.25\textwidth]{stura-logo-htw.pdf}%
+Für die Positionierung des Bildes hat man in den Optionen die Wahl zwischen \emph{center}, \emph{outer} und \emph{inner}. \emph{Inner} positioniert das Bild auf der inneren Seite bei zweiseitigem Druck (also links bei einseitigem Druck) und \emph{outer} positioniert es auf der äußeren Seite (einseitiger Druck: rechts). \emph{Center} platziert es in der Mitte.%
+
+Die Beschriftung der Bilder kann entweder über oder unter dem Bild angeordnet sein. Die Position hängt dabei davon ab, ob \emph{\textbackslash caption\{\}} über oder unter dem Befehl \emph{\textbackslash includegraphics\{\}} steht.%
+
+Die \emph{Bildunterschrift} inklusive des \emph{Labels} sollten immer ganz am Ende der Bildumgebung stehen (sinnvolle Präfixe beim Benennen nicht vergessen -- siehe Kapitel~\ref{sec: label}), eine Begründung dazu gibt es sogar in wissenschaftlichen Arbeiten \cite[][S.101]{schlosser}! In Abbildung~\ref{fig: stura-logo} sieht man das Ergebnis aller Befehle kombiniert aus Tabelle~\ref{tab: abbildung}.%
+
+{\tabulinesep=1.2mm%
+\begin{table}[!hbt]%
+\caption{Befehle zum Einfügen einer Abbildung}%
+\label{tab: abbildung}%
+\begin{tabu} to \textwidth {X[l]X[l]X[l]}%
+\toprule%
+\textbf{Bezeichnung} & \textbf{Latex Code} & \textbf{Ausgabe/\emph{Beschreibung}}\tabularnewline%
+\midrule%
+Bildumgebung starten & \textbackslash begin\{figure\}[!hbt] & \textit{Beginnt eine Abbildungsumgebung und versucht diese in der Reihenfolge \emph{hier (!h), auf der Seite unten (b) oder auf der nächsten Seite oben (t)} zu platzieren.}\tabularnewline%
+Bild einfügen, skalieren und positionieren & \seqsplit{\textbackslash includegraphics[width=0.5\textbackslash textwidth ,center]\{stura-logo-htw\}} & \emph{fügt das Bild mit dem Namen \emph{stura-logo-htw} ein. Dieses wird auf die Hälfte der Textbreite skaliert und innen auf der Seite eingefügt.}\tabularnewline%
+Bildunterschrift hinzufügen & \textbackslash caption\{Logo des STURA der HTW Dresden\} & \emph{fügt eine Bildunterschrift mit der Bezeichnung \emph{Logo des STURA der HTW Dresden} hinzu}\tabularnewline%
+Verlinkung hinzufügen & \textbackslash label\{fig: stura-logo\} & \emph{fügt eine Verlinkung mit dem Namen \emph{fig: abbildung} dem Bild hinzu, auf die referenziert werden kann}\tabularnewline%
+Bildumgebung schließen & \textbackslash end\{figure\}[!hbt] & \emph{Schließt die Abbildungsumgebung}\tabularnewline%
+\bottomrule%
+\end{tabu}%
+\end{table}%
+}%
+
+\begin{figure}[!hbt]%
+    \includegraphics[width=0.5\textwidth]{stura-logo-htw.pdf}%
     \caption{Logo des STURA der HTW Dresden}%
     \label{fig: stura-logo}%
 \end{figure}%
-dann noch Bilder:
-Diese müssen in der Diplomarbeit - egal wie winzig sie sind - eine Bildunterschrift haben und ebenso in einer eigenen Zeile stehen!!! Keinen Umlaufenden Text verwenden.
 %
 %
-\section{Positionieren von Bildern und Tabellen}%Vielleicht auch von Formeln? uff, doch noch viel zu tun.
+
+\section{Tabellen}%
+%
+%
 \section{Formeln}%
-Die wichtigsten Dinge für Mathematik im Dokument sind folgende:
-aus\\
-\begin{tabular}[h]{cc}
-\hline 
- a=b  & \textbackslash begin \{equation\} a=b \textbackslash end \{equation\} \\ 
-\hline 
-\end{tabular} 
-
-\begin{lstlisting}
-\begin{equation}
-a=b
-\end{equation}
-\end{lstlisting} 
-wird
-\begin{equation}
-a=b
-\end{equation}
-aus 
-\begin{lstlisting}
-\begin{equation*}
-a=b
-\end{equation*}
-\end{lstlisting}
-wird
-\begin{equation*}
-a=b
-\end{equation*}
-ohne Nummerierung
-
-Mathe im Text schreibt man mit dem Dollarzeichen
-\begin{lstlisting}
-$E = mc^2$
-\end{lstlisting}
-und man erhält somit $E=mc^2$.
-
-Damit sollten die wichtigsten Arten für Mathematik in der Diplomarbeit abgedeckt sein.
 %
 %
 \section{Literatur}%
-\label{sec: literatur}
+\label{sec: literatur}%
 Die Literatur schreibt man in die Datei \emph{literatur.bib}, welche relativ zu eurem Template im Verzeichnis \emph{/frontbackmatter/} liegt. Hier kommt euch \emph{TexMaker} zu Hilfe, denn unter \emph{Bibliography -> biblatex} findet man Verschiedene Arten von Literatur, die man mit einem Klick hinzufügen kann.%
 
 Dabei sollte man beachten, dass zwischen den einzelnen Quellen unbedingt eine \textsc{Leerzeile} sein sollte, da es sonst eventuell zu Problemen beim Referenzieren kommt.%
@@ -75,22 +77,37 @@ Anschließend kann man mit der Option \emph{Bibliography -> Clean} alle optional
 \section{Zitieren}%
 \label{sec: zitieren}
 Nachdem man seine Quellen dem Literaturverzeichnis hinzugefügt hat (\ref{sec: literatur})und diese mit \emph{Keys} versehen hat versehen hat, kann man diese anschließend Zitieren.%
-Für indirekte Zitate muss man nur die Quelle am Ende des Absatzes/Satzes angeben. Wie das geht, sieht man in \ref{tab: indirekteszitat}. Bemerkungen kann man einfügen, muss man aber nicht. Als \emph{Notiz nachher} empfiehlt es sich, z.B. eine Seitenzahl anzugeben wie hier am Ende des Satzes zu sehen. \cite[][S.22 ff]{einstein}
-\begin{table}[h]%
-\begin{tabu} to \textwidth {X[c]X[c]}%
+
+Für indirekte Zitate muss man nur die Quelle am Ende des Absatzes/Satzes angeben. Wie das geht, sieht man in \ref{tab: zitieren}. Bemerkungen kann man einfügen, muss man aber nicht. Als \emph{Notiz nachher} empfiehlt es sich, z.B. eine Seitenzahl anzugeben wie hier am Ende des Satzes zu sehen. \cite[][S.22 ff]{einstein}%
+
+Natürlich zitiere ich hier nicht aus dem Artikel von Albert Einstein, es dient in diesem Zusammenhang lediglich zu Vorführungszwecken.%
+{\tabulinesep=1.2mm%
+\begin{table}[!hbt]%
+\caption{zitieren}%
+\label{tab: zitieren}%
+\begin{tabu} to \textwidth {X[l]X[l]X[l]}%
 \toprule%
-Hier steht ein indirektes Zitat.\textbackslash cite[Notiz vorher][Notiz nachher]\{key\} & Hier steht ein indirektes Zitat.\cite[Notiz vorher][Notiz nachher]{einstein}\\%
+\textbf{Bezeichnung} & \textbf{Latex Code} & \textbf{Ausgabe/\emph{Beschreibung}}\tabularnewline%
+\midrule%
+indirektes Zitat & \textbackslash cite[Notiz vorher][Notiz nachher]\{key\} & \cite[Notiz vorher][Notiz nachher]{einstein}\tabularnewline%
+direktes Zitat &%
+\begin{minipage}[t]{0.32\textwidth}
+	%\begin{lstlisting} - funktioniert nicht im TABU environment! vielleicht tabularx?
+	%\blockcquote[vorher][nachher]{key}{Hier steht ein wörtliches Zitat.}	
+	%\end{lstlisting}%
+\end{minipage}%
+	& \blockcquote[vorher][nachher]{einstein}{Hier steht ein wörtliches Zitat.}\tabularnewline%
+Auslassungszeichen bzw. Pünktchen &\textbackslash textelp\{\} & \textelp{} \tabularnewline%
 \bottomrule%
 \end{tabu}%
-\caption{Indirektes Zitat}%
-\label{tab: indirekteszitat}%
 \end{table}%
+}%
 
 Manchmal möchte man unbedingt manuell Anführungszeichen setzen, wie in \ref{tab: quotationmarks} zu sehen. Man beachte, dass man immer ein Zitat öffnen und schließen muss. Auf ein \guillemotright \space sollte immer später ein \guillemotleft \space folgen, da es sonst zu Fehlern beim Kompilieren kommt.\\%
 \begin{table}[h]%
-\begin{tabu} to \textwidth {X[c]X[c]X[c]}%
+\begin{tabu} to \textwidth {X[l]X[l]X[l]}%
 \toprule%
-\textbf{Tastenkombination} & \textbf{Latex Code} & \textbf{Befehl}\\%
+\textbf{Tastenkombination} & \textbf{Latex Code} & \textbf{Befehl}\tabularnewline%
 \midrule%
 SHIFT+F1 & \guillemotright & Anführungszeichen doppelt öffnen\\ %
 SHIFT+F2 & \guillemotleft & Anführungszeichen doppelt schließen\\%
@@ -113,17 +130,7 @@ Für wörtliche Zitate nutzt man den Befehl aus \ref{tab: woertlicheszitat}. Mit
 \label{tab: woertlicheszitat}%
 \end{table}%
 
-Die Auslassungspunkte, die man häufig beim Zitieren verwendet, entstehen folgendermaßen (siehe \ref{tab: auslassungspunkte}):\\%
-\begin{table}[h]%
-\begin{tabu} to \textwidth {X[c]X[c]}%
-\toprule%
-\textbackslash textelp\{\} & \textelp{} \\%
-\bottomrule%
-\end{tabu}%
-\caption{Auslassungspunkte}%
-\label{tab: auslassungspunkte}%
-\end{table}%
-
+Ebenso benötigt man häufig die Auslassungspunkte aus Tabelle~\ref{tab: zitieren}, um für den Sinn des Zitates nicht relevante Textstellen zu auszulassen und zu markieren.%
 
 Für Zitate in anderen Sprachen schaut man in die Dokumentation von dem Paket \emph{csquotes}.%
 
@@ -132,21 +139,16 @@ Damit die Literaturreferenzen im Dokument erkannt werden, muss man vor dem Kompi
 %
 \section{Fußnoten}%
 Fußnoten setzt man wie in \ref{tab: fussnoten} zu sehen.\\%
-\begin{table}[h]%
-\begin{tabu} to \textwidth {X[c]X[c]}%
-\toprule%
-Wort \textbackslash footnote\{Fußnotentext\} & Wort \footnote{Fußnotentext} \\%
-\bottomrule%
-\end{tabu}%
+{\tabulinesep=1.2mm%
+\begin{table}[!hbt]%
 \caption{Fußnoten}%
 \label{tab: fussnoten}%
+\begin{tabu} to \textwidth {X[l]X[l]X[l]}%
+\toprule%
+\textbf{Bezeichnung} & \textbf{Latex Code} & \textbf{Ausgabe/\emph{Beschreibung}}\tabularnewline%
+\midrule%
+Fußnote setzen Text & \textbackslash footnote\{Fußnotentext\} & Text \footnote{Fußnotentext} \\%
+\bottomrule%
+\end{tabu}%
 \end{table}%
-%
-%
-\section{Testsection}
-
-\gls{latex}
-\Gls{formula}
-
-
-\newpage
+}%

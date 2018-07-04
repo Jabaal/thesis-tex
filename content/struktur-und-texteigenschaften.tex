@@ -1,8 +1,8 @@
 \chapter{Struktur und Texteigenschaften}%
 \section{Allgemeiner Aufbau}%
-Folgender Grundsätzlicher Aufbau der Diplomarbeit wird gefordert - von den optionalen Seiten laut Leitfaden optional ist nur das "Spezifische Titelblatt" übernommen worden:\\%
+Folgender Grundsätzlicher Aufbau der Diplomarbeit wird gefordert - von den optionalen Seiten laut Leitfaden ist nur das \emph{Spezifische Titelblatt} übernommen worden:%
 \begin{itemize}%
- \item Leerseite%
+ \item Leerseite \emph{(fügt die Druckerei ein)}%
  \item Aufgabenblatt der Hochschule (1x original, 1x Kopie) \emph{wird hier nicht eingefügt, da diese Kopie besser in der Druckerei eingefügt werden sollte!}%
  \item Spezifisches Titelblatt%
  \item Inhaltsverzeichnis%
@@ -15,223 +15,224 @@ Folgender Grundsätzlicher Aufbau der Diplomarbeit wird gefordert - von den opti
  \item Eidesstattliche Erklärung%
  \item Anlagenverzeichnis%
  \item Anlagen%
- \item Leerseite%
+ \item Leerseite \emph{(fügt die Druckerei ein)}%
 \end{itemize}%
 %
 \section{Allgemeine Texteingabe}%
-Latex setzt den Text besser als die meisten Programme. \href{https://tex.stackexchange.com/questions/110133/visual-comparison-between-latex-and-word-output-hyphenation-typesetting-ligat#110140}{Hier} und \href{http://www.rtznet.nl/zink/latex.php}{hier} sind Beispiele dazu.%
+Latex setzt den Text automatisch meist besser als vergleichbare Programme. \href{https://tex.stackexchange.com/questions/110133/visual-comparison-between-latex-and-word-output-hyphenation-typesetting-ligat#110140}{Hier} und \href{http://www.rtznet.nl/zink/latex.php}{hier} sind Beispiele dazu.%
 
-Damit auch keine Fehler passieren, sollte man am Ende einer Zeile immer ein Prozentzeichen "\%" setzen. Die Begründung dazu findet man \href{https://tex.stackexchange.com/questions/7453/what-is-the-use-of-percent-signs-at-the-end-of-lines#7459}{hier}.%
+Damit keine zusätzlichen Leerzeichen entstehen und Textsetzfehler passieren, sollte man am Ende einer Zeile immer ein Prozentzeichen \emph{\%} setzen, siehe Tabelle~\ref{tab: textumbruch}. Die Begründung dazu findet man \href{https://tex.stackexchange.com/questions/7453/what-is-the-use-of-percent-signs-at-the-end-of-lines#7459}{hier}. Alles was nach dem Prozentzeichen im Latex-Quellcode steht, ist übrigens auskommentiert und erscheint nicht im späteren Dokument.%
 
-Falls man also innerhalb eines Kapitels eine Einrückung haben möchte, muss man nur eine Leerzeile(siehe \ref{tab: leerzeile}) einfügen.\\%
-\begin{table}[ht]%
-\begin{tabu} to \textwidth {X[l]X[l]}%
+Um eine bessere Lesbarkeit des Textes zu erreichen, sollte man den Text entsprechend mit Absätzen bzw. Einrückungen und eventuell sogar mit erzwungenen Zeilenumbrüchen formatieren.%
+
+Eine/n Einrückung/Absatz fügt man ein, um einen thematischen Gedankensprung zu verstärken. Man sollte entweder einen Absatz \emph{oder} eine Einrückung dafür verwenden und in dieser Vorlage wurde sich für die Einrückung entschieden.
+
+Man kann auch einen Umbruch der Zeile erzwingen, ohne dass eine Einrückung entsteht. Diesen erzwungenen Umbruch sollte man nur selten gebrauchen und nach Möglichkeit erst ganz zum Schluss in sein Dokument einfügen, da dieser die Formatierung nachhaltig beeinflusst. Der manuelle Zeilenumbruch erzeugt eine neue Zeile \emph{ohne Einrückung} und bricht ebenso den Blocksatz ab. Gelegentlich ist es aber nützlich und nötig, damit die Formatierung des Textes mehr Sinn ergibt oder um Bilder und Tabellen an einer bestimmten Stelle zu platzieren. Wie gesagt, sollte dieses Instrument am Besten als allerletztes Mittel verwendet werden.
+
+Beide Möglichkeiten der Formatierung sind in Tabelle~\ref{tab: textumbruch} zu sehen.%
+{\tabulinesep=1.2mm%
+\begin{table}[!hbt]%
+\caption{Textumbruch und Einrückung}%
+\label{tab: textumbruch}%
+\begin{tabu} to \textwidth {X[l,0.2]X[l,0.4]X[l,0.4]}%
 \toprule%
-	\begin{minipage}[t]{0.4\textwidth}% minipage wird genutzt, damit die Befehle ohne Einrückung geschrieben werden können
+\textbf{Bezeichnung} 		& \textbf{Latex-Code} 			& \textbf{Ausgabe}\tabularnewline%
+\midrule%
+Zeilenende im Quellcode & \% & \emph{keine - im Quellcode ist das Prozentzeichen zu sehen}\tabularnewline%
+Einrückung%
+&%
+	\begin{minipage}[t]{0.35\textwidth}% minipage wird genutzt, damit die Befehle ohne Einrückung geschrieben werden können
 	Erste Zeile Latex Code\\%
 	\\%
-	Zweite Zeile Latex Code%
+	In dieser Zeile ist eine Einrückung%
 	\end{minipage}%
 &%
-	\begin{minipage}[t]{0.4\textwidth}%
+	\begin{minipage}[t]{0.35\textwidth}%
 	Erste Zeile Latex Code\\%
-	\hspace*{10.95pt}Zweite Zeile Latex Code% indent setzen - durch \the\parindent kann man die aktuelle Größe im Dokument ins PDF schreiben lassen
-	\end{minipage}\\%
-\bottomrule%
-\end{tabu}%
-\caption{Einrückung durch Leerzeile}%
-\label{tab: leerzeile}%
-\end{table}\\%
-%
-Einen erzwungenen Umbruch sollte man nur im äußersten Notfall gebrauchen! Dieser wird wie in \ref{tab: backslash} erzwungen, erstellt eine neue Zeile \emph{(!)} und bricht den Blocksatz ab \emph{(!)}. Manchmal ist dieser Umbruch aber nützlich und nötig, um Bilder oder Tabellen an die richtige Stelle zu platzieren - zum Beispiel am Ende eines bestimmten Satzes.\\%
-\begin{table}[h]%
-\begin{tabu} to \textwidth {X[l]X[l]}%
-\toprule%
-	\begin{minipage}{0.4\textwidth}%
+	\hspace*{10.95pt}In dieser Zeile ist eine Einrückung% indent setzen - durch \the\parindent kann man die aktuelle Größe im Dokument ins PDF schreiben lassen
+	\end{minipage}\tabularnewline%
+Erzwungener Zeilenumbruch%
+&%
+	\begin{minipage}[t]{0.35\textwidth}%
 	Erste Zeile Latex Code\textbackslash \textbackslash Zweite Zeile Latex Code
 	\end{minipage}%
 &%
-	\begin{minipage}{0.4\textwidth}%
+	\begin{minipage}[t]{0.35\textwidth}%
 	Erste Zeile Latex Code\\%
 	\noindent Zweite Zeile Latex Code%
-	\end{minipage}\\%
+	\end{minipage}\tabularnewline%
 \bottomrule%
 \end{tabu}%
-\caption{Erzwungener Zeilenumbruch}%
-\label{tab: backslash}%
-\end{table}\\%
-%
-%
-\section{Dokumentstruktur}%
-Oft will man Kapitel oder andere Teile der Arbeit umstrukturieren. Dafür empfiehlt es sich zumindest die Kapitel in \emph{einzelne} Dateien zu packen, die man in einer Hauptdatei zusammenfügt. Einfügen solltet ihr \textsc{NUR} nach dem Muster in Tabelle \ref{tab: einfuegen}. Der Befehl \textbackslash input\{\} wirkt dabei so, als ob ihr den Code direkt in euer Dokument einfügen würdet.\\%
-\begin{table}[h]%
-\begin{tabu} to \textwidth {X[l]X[l]}%
-\toprule%
-\textbackslash input\{./content/kapitelname.tex\} & Fügt den Tex-Code aus der Datei "kapitelname.tex" genau an der Stelle ein, wo der Befehl steht. Dabei liegen die Dateien im Ordner "/content/" in dem Ordner mit der Datei \emph{main-htw-abschlussarbeit.tex}\\%
-\bottomrule%
-\end{tabu}%
-\caption{Dokumentstruktur durch Einfügen}%
-\label{tab: einfuegen}%
 \end{table}%
+}%
+%
 %
 %
 \section{Kapitelstruktur}%
-Mit folgenden Befehlen aus \ref{tab: kapitelstruktur} Strukturiert man seine Überschriften. Diese 6 Ebenen solltet ihr maximal verwenden.\\%
-\begin{table}[h]%
-\begin{tabu} to \textwidth {X[l]X[l]}%
-\toprule%
-\textbackslash chapter\{Name\} & 1. Name\\%
-\textbackslash section\{Name\} & 1.1. Name\\%
-\textbackslash subsection\{Name\} & 1.1.1 Name \\%
-\textbackslash subsubsection\{Name\} & 1.1.1.1 Name \\%
-\textbackslash paragraph\{Name\} & 1.1.1.1.1 Name \\%
-\textbackslash subparagraph\{Name\} & 1.1.1.1.1.1 Name \\%
-\bottomrule%
-\end{tabu}%
+Mit den Befehlen aus Tabelle~\ref{tab: kapitelstruktur} strukturiert man seine Überschriften. Es gibt maximal \emph{sechs} Ebenen, die ihr verwenden könnt.%
+{\tabulinesep=1.2mm%
+\begin{table}[!hbt]%
 \caption{Kapitelstruktur}%
 \label{tab: kapitelstruktur}%
+\begin{tabu} to \textwidth {X[l]X[l]X[l]}%
+\toprule%
+\textbf{Bezeichnung} 		& \textbf{Latex-Code} 			& \textbf{Ausgabe}\tabularnewline%
+\midrule%
+\multirow[t]{6}{=}{Ebenen der Kapitelüberschriften} & \textbackslash chapter\{Überschrift\} & 1. Überschrift\tabularnewline%
+& \textbackslash section\{Überschrift\} & 1.1. Überschrift\tabularnewline%
+& \textbackslash subsection\{Überschrift\} & 1.1.1 Überschrift\tabularnewline%
+& \textbackslash subsubsection\{Überschrift\} & 1.1.1.1 Überschrift \tabularnewline%
+& \textbackslash paragraph\{Überschrift\} & 1.1.1.1.1 Überschrift \tabularnewline%
+& \textbackslash subparagraph\{Überschrift\} & 1.1.1.1.1.1 Überschrift\tabularnewline%
+\bottomrule%
+\end{tabu}%
 \end{table}%
+}%
 
-Anmerkungen zur Struktur:\\%
+Anmerkungen zur Struktur:%
 \begin{itemize}%
-\item Außer den voreingestellten nicht nummerierten Kapiteln werden alle Kapitel nummeriert in einer Abschlussarbeit! Eine Ausnahme bildet der Anhang - weitere Informationen findet ihr im Anhang des Templates.%
+\item Außer den voreingestellten, (nicht nummerierten) Kapiteln werden alle Kapitel in einer Abschlussarbeit nummeriert! Eine Ausnahme kann der Anhang bilden - weitere Informationen findet ihr im Anhang des Templates.%
 \item Ein Unterpunkt benötigt mindestens zwei Einträge! Auf \textbackslash chapter\{\} müssen also mindestens zwei \textbackslash section\{\} folgen, damit ein Einfügen von \textbackslash section\{\} berechtigt ist!%
 \item Änderungen der Kapitelstruktur sind \emph{sofort} im linken Übersichtsbereich von \emph{TexMaker} unter \textsc{structure} sichtbar, yay!%
-\item Bei Änderungen der Kapitelstruktur muss man \emph{zwei Mal kompilieren}, damit man die Änderung auch im PDF sieht!%
+\item Bei Änderungen der Kapitelstruktur muss man \emph{zwei Mal kompilieren}, damit man die Änderung auch im Inhaltsverzeichnis PDF sieht!%
 \end{itemize}%
 %
 %
 \section{Listenstrukturen}%
-Es gibt nummerierte und nicht nummerierte Listen. Diese kann man auch untereinander beliebig kombinieren und beide haben insgesamt vier Level. Beide sind in \ref{tab: listen} aufgelistet. TexMaker \\%
-\begin{table}[h]%
+Es gibt nummerierte und nicht nummerierte Listen. Diese kann man auch untereinander beliebig kombinieren und beide haben insgesamt vier Level. Beide sind in \ref{tab: listen} aufgelistet.%
+{\tabulinesep=1.2mm%
+\begin{longtabu} to \textwidth {X[1,l]X[1,l] X[2,l]}%
+\caption[Listen und Level]{Listen und Level}%
+\label{tab: listen}\tabularnewline%
+\toprule%
+\textbf{Bezeichnung}%
+&% 
+\textbf{Latex-Code}%
+&%
+\textbf{Ausgabe}\tabularnewline%
+\midrule%
+\endfirsthead%
+\multicolumn{3}{c}%
+{{\tablename\ \thetable{} -- Fortsetzung von der vorherigen Seite}}\tabularnewline%
+\midrule%
+\endhead%
+nicht nummerierte Liste%
+&%
+\textbackslash begin\{itemize\}\newline%
+\textbackslash item Erstes Level\newline%
+\textbackslash item Erstes Level\newline%
+\textbackslash begin\{itemize\}\newline%
+\textbackslash item Zweites Level\newline%
+\textbackslash item Zweites Level\newline%
+\textbackslash begin\{itemize\}\newline%
+\textbackslash item Drittes Level\newline%
+\textbackslash item Drittes Level\newline%
+\textbackslash begin\{itemize\}\newline%
+\textbackslash item Viertes Level\newline%
+\textbackslash item Viertes Level\newline%
+\textbackslash end\{itemize\}\newline%
+\textbackslash end\{itemize\}\newline%
+\textbackslash end\{itemize\}\newline%
+\textbackslash end\{itemize\}%
+&%
+\begin{minipage}[t]{0.45\textwidth}%
+\begin{itemize}%
+\item Erstes Level%
+\item Erstes Level%
+\begin{itemize}%
+\item Zweites Level%
+\item Zweites Level%
+\begin{itemize}%
+\item Drittes Level%
+\item Drittes Level%
+\begin{itemize}%
+\item Viertes Level%
+\item Viertes Level%
+\end{itemize}%
+\end{itemize}%
+\end{itemize}%
+\end{itemize}%
+\end{minipage}\tabularnewline%
+nummerierte Liste%
+&%
+\textbackslash begin\{enumerate\}\newline%
+\textbackslash item Erstes Level\newline%
+\textbackslash item Erstes Level\newline%
+\textbackslash begin\{enumerate\}\newline%
+\textbackslash item Zweites Level\newline%
+\textbackslash item Zweites Level\newline%
+\textbackslash begin\{enumerate\}\newline%
+\textbackslash item Drittes Level\newline%
+\textbackslash item Drittes Level\newline%
+\textbackslash begin\{enumerate\}\newline%
+\textbackslash item Viertes Level\newline%
+\textbackslash item Viertes Level\newline%
+\textbackslash end\{enumerate\}\newline%
+\textbackslash end\{enumerate\}\newline%
+\textbackslash end\{enumerate\}\newline%
+\textbackslash end\{enumerate\}%
+&%
+\begin{minipage}[t]{0.45\textwidth}%
+%\begin{NoHyper}% damit vertical alignment in der minipage stimmt mit hyperref
+\begin{enumerate}%
+\item Erstes Level%
+\item Erstes Level%
+\begin{enumerate}%
+\item Zweites Level%
+\item Zweites Level%
+\begin{enumerate}%
+\item Drittes Level%
+\item Drittes Level%
+\begin{enumerate}%
+\item Viertes Level%
+\item Viertes Level%
+\end{enumerate}%
+\end{enumerate}%
+\end{enumerate}%
+\end{enumerate}%
+%\end{NoHyper}%
+\end{minipage}\tabularnewline%
+\bottomrule%
+\end{longtabu}%
+}%
+%
+\section{Schrift verändern}%
+Am besten verzichtet man innerhalb des Fließtextes der Abschlussarbeit auf \textbf{fette Schrift}, denn mit der gewählten Schriftart Arial wirkt das sehr klobig. Ebenso nicht sehr ästhetisch sind \underline{Unterstreichungen}. Für die fette Schrift gibt es aber verschiedene Ausnahmen (z.B. Überschriften), welche aber automatisch von der Vorlage gesetzt werden. Für Tabellenüberschriften sollte man jedoch gelegentlich die fette Schriftart manuell bemühen. Ebenso kann Unterstreichen in sehr seltenen Fällen sinnvoll sein. Die Befehle findet ihr in Tabelle~\ref{tab: schriftveraendern}.%
+
+Statt fetter Schriftart sollte man besser \textsc{Kapitälchen} und \emph{kursive Schrift} nutzen, um zum Beispiel Akzente zu setzen. Falls man nur einzelne Wörter betonen möchte, gibt es in Latex die Möglichkeit, einen Akzent zu setzen, was generell gegenüber einer kursiven Schriftsetzung bevorzugt benutzt werden sollte. Ein Akzent verhält sich in kursiver Schriftumgebung nämlich automatisch anders als in normaler Schriftumgebung (siehe Tabelle~\ref{tab: schriftveraendern}).%
+{\tabulinesep=1.2mm%
+\begin{table}[!hbt]%
+\caption{Schriftveränderungen}%
+\label{tab: schriftveraendern}%
 \begin{tabu} to \textwidth {X[l]X[l]X[l]}%
 \toprule%
-\textbf{Bezeichnung} 		& \textbf{Latex-Code} 			& \textbf{Ausgabe}\\%
+\textbf{Bezeichnung}%
+&% 
+\textbf{Latex-Code}%
+&%
+\textbf{Ausgabe}\tabularnewline%
 \midrule%
-nicht\newline
-nummerierte\newline
-Liste			 	& \textbackslash begin\{itemize\}\newline
-					\textbackslash item Erstes Level\newline
-					\textbackslash item Erstes Level\newline
-					\textbackslash begin\{itemize\}\newline
-					\textbackslash item Zweites Level\newline
-					\textbackslash item Zweites Level\newline
-					\textbackslash begin\{itemize\}\newline
-					\textbackslash item Drittes Level\newline
-					\textbackslash item Drittes Level\newline
-					\textbackslash begin\{itemize\}\newline
-					\textbackslash item Viertes Level\newline
-					\textbackslash item Viertes Level\newline
-					\textbackslash end\{itemize\}\newline
-					\textbackslash end\{itemize\}\newline
-					\textbackslash end\{itemize\}\newline
-					\textbackslash end\{itemize\}				& \begin{itemize}
-																\item Erstes Level
-																\item Erstes Level
-																\begin{itemize}
-																	\item Zweites Level
-																	\item Zweites Level
-																	\begin{itemize}
-																		\item Drittes Level
-																		\item Drittes Level
-																		\begin{itemize}
-																			\item Viertes Level
-																			\item Viertes Level
-																		\end{itemize}
-																	\end{itemize}
-																\end{itemize}
-																\end{itemize}\\%
-nummerierte\newline
-Liste			 	& \textbackslash begin\{enumerate\}\newline
-					\textbackslash item Erstes Level\newline
-					\textbackslash item Erstes Level\newline
-					\textbackslash begin\{enumerate\}\newline
-					\textbackslash item Zweites Level\newline
-					\textbackslash item Zweites Level\newline
-					\textbackslash begin\{enumerate\}\newline
-					\textbackslash item Drittes Level\newline
-					\textbackslash item Drittes Level\newline
-					\textbackslash begin\{enumerate\}\newline
-					\textbackslash item Viertes Level\newline
-					\textbackslash item Viertes Level\newline
-					\textbackslash end\{enumerate\}\newline
-					\textbackslash end\{enumerate\}\newline
-					\textbackslash end\{enumerate\}\newline
-					\textbackslash end\{enumerate\}				& \begin{enumerate}
-																\item Erstes Level
-																\item Erstes Level
-																\begin{enumerate}
-																	\item Zweites Level
-																	\item Zweites Level
-																	\begin{enumerate}
-																		\item Drittes Level
-																		\item Drittes Level
-																		\begin{enumerate}
-																			\item Viertes Level
-																			\item Viertes Level
-																		\end{enumerate}
-																	\end{enumerate}
-																\end{enumerate}
-																\end{enumerate}\\%
+fette Schrift & \textbackslash textbf\{fett\} & \textbf{fett} \\%
+kursive Schrift & \textbackslash textit\{kursiv\} & \textit{kursiv}\tabularnewline%
+Kapitälchen & \textbackslash textsc\{Kapitälchen\} & \textsc{Kapitälchen} \tabularnewline%
+Akzente & \textbackslash emph\{Akzent\} & \emph{Akzent} \tabularnewline%
+\midrule%
+\multirow[t]{2}{=}{Akzente in verschiedenen Schriftumgebungen} & Ein \textbackslash emph\{Akzent\} in normaler Schriftumgebung & Ein \emph{Akzent} in normaler Schriftumgebung\tabularnewline%
+& \textbackslash textit\{Ein \textbackslash emph\{Akzent\} in kursiver Schriftumgebung\} & \textit{Ein \emph{Akzent} in kursiver Schriftumgebung}\tabularnewline%
 \bottomrule%
 \end{tabu}%
-\caption{Listen und Level}%
+\end{table}%
+}%
 %
-%
-\label{tab: listen}%
-\end{table}%
-
-\section{Akzente setzen}%
-Für längere Akzente benutzen wir \textit{kursive Schrift}. Funktioniert wie hier in \ref{tab: kursiv} zu sehen:\\%
-\begin{table}[h]%
-\begin{tabu} to \textwidth {X[l]X[l]}%
-\toprule%
-\textbackslash textit\{kursiv\} & \textit{kursiv}\\%
-\bottomrule%
-\end{tabu}%
-\caption{Kursiv}%
-\label{tab: kursiv}%
-\end{table}%
-
-Weil \textbf{fetter Text} mit der Schriftart \emph{Arial} innerhalb eines Textes wirklich nicht gut aussieht und \underline{unterstreichen} mindestens genauso schäbig aussieht, verwenden wir weder fetten Text noch unterstreichen wir Wörter (Kapitelüberschriften und Tabellenüberschriften sind von dieser Regel ausgenommen, diese schreiben wir doch in fetter Schriftart). Wir nutzen \textsc{Kapitälchen} und \emph{Akzente} zur Hervorhebung. \textsc{Kapitälchen funktionieren} wie in \ref{tab: kapitälchen} zu sehen:\\%
-\begin{table}[h]%
-\begin{tabu} to \textwidth {X[l]X[l]}%
-\toprule%
-\textbackslash textsc\{Kapitälchen\} & \textsc{Kapitälchen} \\%
-\bottomrule%
-\end{tabu}%
-\caption{Kapitälchen}%
-\label{tab: kapitälchen}%
-\end{table}%
-
-Um einzelne \emph{Akzent} zu setzen, nutzt man den Befehl aus \ref{tab: akzent}. Man beobachte, dass der \emph{Akzent} in kursiver Schriftumgebung anders gesetzt wird:\\%
-\begin{table}[h]%
-\begin{tabu} to \textwidth {X[l]X[l]}%
-\toprule%
-\textbackslash emph\{Akzent\} & \emph{Akzent} \\%
-Ein \emph{Akzent} in normaler Schriftumgebung & \textit{Ein \emph{Akzent} in kursiver Schriftumgebung}\\%
-\bottomrule%
-\end{tabu}%
-\caption{Akzente}%
-\label{tab: akzent}%
-\end{table}%
-
-Für Tabellenüberschriften benötigt man gelegentlich doch die fette Schriftart. In Tabelle \ref{tab: fett} findet man den Befehl dazu. Kapitelüberschriften und einige andere Formatierungen werden automatisch vorgenommen, dabei sind einige auch in fetter Schriftart geschrieben.\\%
-\begin{table}[h]%
-\begin{tabu} to \textwidth {X[l]X[l]}%
-\toprule%
-\textbackslash textbf\{fett\} & \textbf{fett} \\%
-\bottomrule%
-\end{tabu}%
-\caption{Fette Schrift}%
-\label{tab: fett}%
-\end{table}%
 %
 \section{Besondere Zeichen}%
-Einige wichtige Sonderzeichen sind in \ref{tab: sonderzeichen} und im Cheatsheet hinterlegt. Für alles weitere kann man sich \href{http://www.ctan.org/tex-archive/info/symbols/comprehensive/symbols-a4.pdf}{hier} eine PDF herunterladen oder im Ordner \emph{/docs/} die Datei \emph{symbols-a4.pdf} bemühen.%
+Einige Zeichen sind von Latex für den Programmcode reserviert. Damit man trotzdem diese Zeichen nutzen kann, gibt es sogenannte \emph{Escape-Commands}, die sich in der Tabelle~\ref{tab: sonderzeichen} finden. Für die meisten anderen Symbole kann man sich \href{http://www.ctan.org/tex-archive/info/symbols/comprehensive/symbols-a4.pdf}{hier} eine pdf herunterladen oder im Ordner \textsc{/docs/} die Datei \textsc{symbols-a4.pdf} bemühen.%
 
 Viele andere Zeichen, die nur in der Mathematik-Umgebung funktionieren, findet ihr in TexMaker auf der linken Seite unter den Zeichen \emph{Relation symbols} ($\div$), \emph{Arrow symbols} ($\Rightarrow$), \emph{Miscellaneous symbols} ($\forall$), \emph{Delimiters} ($\lbrace\rbrace$) und \emph{Greek letters} ($\lambda$).\\%
-\begin{table}[h]%
+{\tabulinesep=1.2mm%
+\begin{table}[!hbt]%
+\caption{Sonderzeichen}%
+\label{tab: sonderzeichen}%
 \begin{tabu} to \textwidth {X[l]X[l]X[l]}%
 \toprule%
 \textbf{Bezeichnung} & \textbf{Latex-Code} & \textbf{Ausgabe}\\%
@@ -249,6 +250,5 @@ Zirkumflex & \textbackslash \^{}\{\} & \^{} \\%
 Tilde & \textbackslash \~{}\{\} & \~{} \\%
 \bottomrule%
 \end{tabu}%
-\caption{Sonderzeichen}%
-\label{tab: sonderzeichen}%
 \end{table}%
+}%

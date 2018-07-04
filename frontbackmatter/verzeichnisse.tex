@@ -6,15 +6,23 @@
 %
 %
 %%% ABKÜRZUNGSVERZEICHNIS
-\setglossarystyle{long3col}% Stil festlegen
-\printnoidxglossaries%
-\newpage%
+%\printglossary[% Verzeichnis einfügen
+%	type=abbreviations,% Abkürzungen hier einfügen 
+%	title=Abk\"urzungen,% neu benennen, sonst wird es "Akronyme" heißen, was nicht immer richtig ist
+%	style=long3col-booktabs,% Lange Tabelle mit 3 spalten und header und midrule (booktabs environment)
+%	nogroupskip% Kein vertikaler Abstand zwischen Buchstaben für die alphabetische Sortierung
+%	]%
+%\newpage%
 %
 %
-% Verzeichnis der Formelzeichen und Symbole
-Verzeichnis der Formelzeichen und Symbole%
-Hier muss unbedingt noch mit Glossaries gearbeitet werden. nomencl ist einfach zu schwach.%
-\newpage%
+%%% VERZEICHNIS DER FORMELZEICHEN UND SYMBOLE
+%\printglossary[% Erstellt das Verzeichnis der Formelzeichen und Symbole hier
+%	type=symbols,% Symbolverzeichnis einfügen
+%	title={Formelzeichen und Symbole},% Umbenennen des Verzeichnisses
+%	style=altlongragged4col-booktabs,% longtab mit 4 spalten und einem header
+%	nogroupskip% Kein vertikaler Abstand für die alphabetische Sortierung
+%	]%
+%\newpage%
 %
 %
 %%% ABBILDUNGSVERZEICHNIS
