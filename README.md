@@ -36,7 +36,7 @@ Beschrieben wird die Installation und Einrichtung quick and dirty für einen Win
         - `Quotationmarks` `»@«` 
           - Tastenkombination der Sonderzeichen: `ALT+175` und `ALT+174`
         - `Quotationmarks small` `›@‹` 
-          - Tastenkombination der Sonderzeichen: `ALT+0155` und `ALT+0139`         
+          - Tastenkombination der Sonderzeichen: `ALT+0155` und `ALT+0139`        
   -[Active-Pearl herunterladen](https://www.activestate.com/activeperl/downloads) *meine Version:5.24.3.2404 x64* (sonst funktionieren die Glossare nicht)
     - Pearl installieren
     - Verzeichnis nicht ändern, *File extension* und *PATH* zum Pearl-Interpreter angekreuzt lassen
