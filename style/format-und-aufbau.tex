@@ -2,8 +2,8 @@
 \documentclass[%
 	twoside=false,% Doppelseitig schreiben oder nicht. Wichtig für automatische Bindekorrektur (BCOR).
 	paper=a4,% Papiergröße festlegen, hier A4
-	DIV=15,% Mit Hilfe der Option DIV=Faktor wird festgelegt, in wie viele Streifen die Seite horizontal und vertikal bei der Satzspiegelkonstruktion eingeteilt wird. DIV=calc nimmt einem diese Arbeit ab (hängt ja auch von der Schriftart und -größe ab usw.)
-	BCOR=0mm,% Mit Hilfe der Option BCOR=Korrektur geben Sie den absoluten Wert der Bindekorrektur an, also die Breite des Bereichs, der durch die Bindung von der Papierbreite verloren geht. Am besten in der Druckerei nachfragen! Man kann einen Wert von ca. 10mm für Arbeiten bis 100 Seiten annehmen.
+	%DIV=calc,% Mit Hilfe der Option DIV=Faktor wird festgelegt, in wie viele Streifen die Seite horizontal und vertikal bei der Satzspiegelkonstruktion eingeteilt wird. DIV=calc nimmt einem diese Arbeit ab (hängt ja auch von der Schriftart und -größe ab usw.) - verwenden, wenn geometry nicht genutzt wird
+	%BCOR=0mm,% Mit Hilfe der Option BCOR=Korrektur geben Sie den absoluten Wert der Bindekorrektur an, also die Breite des Bereichs, der durch die Bindung von der Papierbreite verloren geht. Am besten in der Druckerei nachfragen! Man kann einen Wert von ca. 10mm für Arbeiten bis 100 Seiten annehmen - Verwenden, falls geometry nicht genutzt wird
 	parskip=false,% Wie Absätze gekennzeichnet werden. Zitat: "parskip=false Absätze werden durch einen Einzug der ersten Zeilen von einem Geviert (1 em) gekennzeichnet. Der erste Absatz eines Abschnitts wird nicht eingezogen." Alles andere ist hier nicht sinnvoll, siehe scrguide.pdf und Leitfaden_fuer_wiss_Dokumente.pdf!
 	fontsize=11pt,% Schriftgröße
 	listof=totoc,% Abbildungsverz. usw. werden in das Inhaltsverzeichnis aufgenommen
@@ -14,7 +14,7 @@
 %
 %%% HEADER und FOOTER DESIGN
 \usepackage[% Header und Footer designen
-	autooneside=true,% ???
+	autooneside=true,% bei true werden nur die höheren Kolumnentitel in den Header geschrieben
 	headsepline=true,% Trennungsstrich für den Header (außer bei neuen Kapiteln und bei den Indizes)
 	footsepline=true,% Trennungsstrich für den Footer (außer bei neuen Kapiteln und bei den Indizes)
 	plainfootsepline=true% Trennungsstrich für den Footer bei neuen Kapiteln und bei den Indizes
@@ -60,6 +60,19 @@
 \onehalfspacing% 1,5 Zeilig gewählt
 % oder, falls dieses Paket mal nicht funktioniert:
 % \linespread{1.2} % für Werte schaut man hier: https://www.sharelatex.com/learn/Paragraph_formatting#Line_spacing
+%
+%
+%%% TYPEAREA
+\usepackage{geometry}% muss nach KOMA geladen werden. Verändert die Typearea
+\geometry{left=25mm,% 
+	right=30mm,%
+	top=20mm,%
+	bottom=20mm,%
+	bindingoffset=0mm,% bindingoffset muss gesetzt werden in der Druckerei
+	%showframe,% zeigt den Frame an - nur zum Debugging nutzen!
+	%headsep=5mm,% Abstand des Headers zum Text
+	%footskip=10mm% Abstand des Footers zum Text
+	}%
 %
 %
 %%% LEERE SEITEN

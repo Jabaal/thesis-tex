@@ -2,17 +2,6 @@
 \input{./style/format-und-aufbau.tex}% Alles was mit dem Format und Aufbau zu tun hat, ist hier zu finden
 %
 %
-%%% LISTINGS FÜR CODE IN TABELLEN (OPT)
-% Das Paket listings wird benötigt, um line-breaks zu haben, wenn man normalen .tex-code eingibt
-% weiteres dazu: https://tex.stackexchange.com/questions/121601/automatically-wrap-the-text-in-verbatim?noredirect=1&lq=1
-\usepackage{listings}
-\lstset{
-basicstyle=\small\ttfamily,
-columns=flexible,
-breaklines=true
-}
-%
-%
 %%% LADEN UND KONFIGURIEREN ALLER BENÖTIGTEN PAKETE
 \input{./style/pakete.tex}%
 %
@@ -40,8 +29,9 @@ breaklines=true
 %
 \input{./content/struktur-und-texteigenschaften.tex}%
 %
-\input{./content/bilder-tabellen-formeln-referenzen.tex}%
+\input{./content/objekte-und-referenzen.tex}%
 %
+\input{./content/schlusswort.tex}%
 %
 %
 %%% LITERATUR- UND QUELLENVERZEICHNIS

@@ -1,0 +1,301 @@
+\chapter{Einfügen von Objekten und Referenzen}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Label und Referenzen}%
+\label{sec: label}%
+Damit man auf bestimmte Teile der Arbeit verlinken kann, muss man \emph{Label} setzen. Dabei kann man auf verschiedene Dinge zeigen (\emph{referenzieren}), z.B. eine Seite, ein Kapitel, eine Tabelle oder ein Bild. Die Befehle aus Tabelle~\ref{tab: referenzieren} bleiben dabei gleich, nur die Positionierung ändert sich.%
+
+Dabei empfiehlt es sich, den \emph{Labels} sinnvolle Präfixe zu geben. Bilder kann man z.B. mit »\emph{fig:}« und Tabellen mit »\emph{tab:}« benennen. Man beachte die \emph{Tilde (\textasciitilde)} beim anschließenden Referenzieren.%
+
+{\tabulinesep=1.2mm%
+\begin{table}[!hbt]%
+\caption{Label und Referenzen}%
+\label{tab: referenzieren}%
+\begin{tabu} to \textwidth {X[l]X[l]X[l]}%
+\toprule%
+\textbf{Bezeichnung} & \textbf{Latex Code} & \textbf{Ausgabe/\emph{Beschreibung}}\tabularnewline%
+\midrule%
+Label setzen & \textbackslash label\{chap: vorwort\} & \textit{setzt ein Label mit dem Namen \emph{chap: vorwort}. Dies wurde im Quellcode bereits vorgenommen.}\tabularnewline
+Referenz aufrufen & Kapitel\textasciitilde\textbackslash ref\{chap: vorwort\} & Kapitel~\ref{chap: vorwort}\tabularnewline
+\bottomrule%
+\end{tabu}%
+\end{table}%
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Bilder}%
+Um Bilder zu platzieren, müssen diese in eine Umgebung geschrieben werden. In dieser Umgebung platziert man dann das Bild, die Positionierung/Größe/Verschiebung des Bildes, die Beschriftung und den Link. In Tabelle~\ref{tab: abbildung} sind die Befehle in einem Beispiel gelistet.%
+
+Für die Positionierung des Bildes hat man in den Optionen die Wahl zwischen \emph{center}, \emph{outer} und \emph{inner}. \emph{Inner} positioniert das Bild auf der inneren Seite bei zweiseitigem Druck (also links bei einseitigem Druck) und \emph{outer} positioniert es auf der äußeren Seite (einseitiger Druck: rechts). \emph{Center} platziert es in der Mitte.%
+
+Die Beschriftung der Bilder kann entweder über oder unter dem Bild angeordnet sein. Die Position hängt dabei davon ab, ob \emph{\textbackslash caption\{\}} über oder unter dem Befehl \emph{\textbackslash includegraphics\{\}} steht.%
+
+Die \emph{Bildunterschrift} inklusive des \emph{Labels} sollten immer ganz am Ende der Bildumgebung stehen (sinnvolle Präfixe beim Benennen nicht vergessen -- siehe Kapitel~\ref{sec: label}), eine Begründung dazu gibt es sogar in wissenschaftlichen Arbeiten \cite[][S.101]{schlosser}! In Abbildung~\ref{fig: stura-logo} sieht man das Ergebnis aller Befehle kombiniert aus Tabelle~\ref{tab: abbildung}.%
+
+{\tabulinesep=1.2mm%
+\begin{table}[!hbt]%
+\caption{Befehle zum Einfügen einer Abbildung}%
+\label{tab: abbildung}%
+\begin{tabu} to \textwidth {X[l]X[l]X[l]}%
+\toprule%
+\textbf{Bezeichnung} & \textbf{Latex Code} & \textbf{Ausgabe/\emph{Beschreibung}}\tabularnewline%
+\midrule%
+Bildumgebung starten & \textbackslash begin\{figure\}[!hbt] & \textit{Beginnt eine Abbildungsumgebung und versucht diese in der Reihenfolge \emph{hier (!h), auf der Seite unten (b) oder auf der nächsten Seite oben (t)} zu platzieren.}\tabularnewline%
+Bild einfügen, skalieren und positionieren & \seqsplit{\textbackslash includegraphics[width=0.5\textbackslash textwidth ,center]\{stura-logo-htw\}} & \emph{fügt das Bild mit dem Namen \emph{stura-logo-htw} ein. Dieses wird auf die Hälfte der Textbreite skaliert und innen auf der Seite eingefügt.}\tabularnewline%
+Bildunterschrift hinzufügen & \textbackslash caption\{Logo des STURA der HTW Dresden\} & \emph{fügt eine Bildunterschrift mit der Bezeichnung \emph{Logo des STURA der HTW Dresden} hinzu}\tabularnewline%
+Verlinkung hinzufügen & \textbackslash label\{fig: stura-logo\} & \emph{fügt eine Verlinkung mit dem Namen \emph{fig: abbildung} dem Bild hinzu, auf die referenziert werden kann}\tabularnewline%
+Bildumgebung schließen & \textbackslash end\{figure\} & \emph{Schließt die Abbildungsumgebung}\tabularnewline%
+\bottomrule%
+\end{tabu}%
+\end{table}%
+}%
+\begin{figure}[!hbt]%
+    \includegraphics[width=0.5\textwidth]{stura-logo-htw.pdf}%
+    \caption{Logo des STURA der HTW Dresden}%
+    \label{fig: stura-logo}%
+\end{figure}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Tabellen}%
+Kurz gefasst: Tabellen in LaTex sind maximal unübersichtlich und machen wenig Spaß, weil sie meist viele Probleme verursachen.%
+
+Es gibt verschiedene Pakete für angeblich bessere Tabellen, jedoch verursachen diese häufig Fehler im Zusammenspiel mit anderen Paketen (Namentlich sind \emph{tabularx}, \emph{tabulary} oder \emph{tabu} gute Beispiele für diese Inkompatibilitäten). Deshalb verwenden wir nur \emph{booktabs} und \emph{longtable}. Mit dem Paket \emph{booktabs} verschönern wir die Tabellen - mit \emph{longtable} kann man Tabellen über mehrere Seiten erstellen. Alles andere regeln wir über den integrierten \emph{Texmaker}-Wizard.%
+\subsection{Tabellen mit \emph{tabular} und \emph{booktabs}}%
+Einige Grundlagen sind bei Tabellen zu beachten:\\%
+\begin{itemize}%
+\item Genau wie Bilder sollte man Tabellen in eine Umgebung schreiben, damit diese sinnvoll platziert werden können und damit man diese mit einem \emph{Label} zum späteren \emph{Referenzieren} versehen kann.%
+\item Wie in der Dokumentation von \emph{booktabs} beschrieben, sollte man für schöne Tabellen nur wenige Linien benutzen. Dafür stehen im speziellen folgende Befehle zur Verfügung (Für mehr Linien muss man selbst die Dokumentation bemühen):%
+	\begin{itemize}%
+	\item \emph{\textbackslash toprule} bildet die Linie über der Tabelle.%
+	\item \emph{\textbackslash midrule} sollte unter der Überschrift/den Überschriften erscheinen und eventuell in der Tabelle -- dabei wird empfohlen in der Tabelle diese Linie nur einzusetzen, falls es unbedingt nötig ist.%
+	\item \emph{\textbackslash bottomrule} bildet der Abschluss einer Tabelle.%
+	\end{itemize}%
+\item Die Spaltenbreite einer Tabelle sollte man möglichst mittels einer Beziehung zur Textbreite angeben. Zum Beispiel \emph{0.5\textbackslash textwidth} erzeugt eine Spaltenbreite mit der Hälfte der Größe der Textbreite.%
+\item Häufig sind die Abstände zwischen den Zeilen von Tabellen nicht groß genug. Mit dem Befehl \textbackslash renewcommand\{\textbackslash arraystretch\}\{1.3\} direkt bevor man die Tabelle startet, lässt sich dieses Problem beheben.
+\end{itemize}%
+
+Am Besten kann man über \emph{Wizard -> Quick tabular} eine Tabelle erstellen und in die entsprechenden Zellen seinen Code eintragen. Dabei sollte man alle Linien entfernen und anschließend die eben erwähnten Linien des Paketes \emph{booktabs} entsprechend einfügen. Beispielhaft sind in Tabelle~\ref{tab: booktabs} wieder alle Befehle gelistet.%
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}[l]{p{0.3\textwidth}p{0.3\textwidth}p{0.32\textwidth}}
+\caption{Tabellen mit \emph{booktabs}}%
+\label{tab: booktabs}%
+\tabularnewline
+ 
+ \toprule
+ \textbf{Bezeichnung} & \textbf{LaTex Code} & \textbf{Ausgabe/\emph{Beschreibung}}\tabularnewline
+ \midrule
+ \endfirsthead
+ 
+ \toprule
+ \textbf{Bezeichnung} & \textbf{LaTex Code} & \textbf{Ausgabe/\emph{Beschreibung}}\tabularnewline
+ \midrule
+ \endhead
+ 
+ \bottomrule
+ \endfoot
+ 
+ \bottomrule
+ \endlastfoot
+ 
+Tabellenumgebung starten & \textbackslash begin\{table\}[!hbt] & \textit{Beginnt eine Tabellenumgebung und versucht diese in der Reihenfolge \emph{hier (!h), auf der Seite unten (b) oder auf der nächsten Seite oben (t)} zu platzieren.}\tabularnewline%
+Tabelle starten -- [Position der Tabelle] -- \{Anzahl, Ausrichtung \{Spaltenbreite\}\} & \textbackslash begin\{tabular\}[\textsc{Position}]\newline
+\{\textsc{Ausrichtung\newline
+\{Spaltenbreite\}}\} & \textit{In den eckigen Klammern steht die Ausrichtung der Tabelle, in den geschweiften Klammern die Ausrichtung der jeweiligen Spalte -- die Größe kann bei einigen Spaltenarten in geschweiften Klammern festgelegt werden. Die Anzahl der Spalten ergibt sich aus der Anzahl der genutzten Buchstaben -- einer pro Spalte.}\tabularnewline
+\midrule
+\multirow[t]{3}{=}{\textsc{Position}} & t & \textit{Platziert die Tabelle \emph{oben} an der Zeilengrundlinie}\tabularnewline
+& b & \textit{Platziert die Tabelle \emph{unten} an der Zeilengrundlinie}\tabularnewline
+& c \emph{oder weg lassen} & \textit{Platziert die Tabelle \emph{in der Mitte} der Zeilengrundlinie}\tabularnewline
+\midrule
+\multirow[t]{6}{=}{\{\textsc{Ausrichtung}\{\textsc{Größe}\}\}}
+& \{l\} & \textit{\emph{links} ausgerichtete Spalte erzeugen -- \textit{eine Feste Größe kann nicht festgelegt werden}}\tabularnewline%
+& \{c\} & \textit{\emph{zentriert} ausgerichtete Spalte erzeugen -- \textit{eine Feste Größe kann nicht festgelegt werden}}\tabularnewline%
+& \{r\} & \textit{\emph{rechts} ausgerichtete Spalte erzeugen -- \textit{eine Feste Größe kann nicht festgelegt werden}}\tabularnewline%
+& \{p\{10mm\}\} & \textit{\emph{oben} ausgerichtete Paragraphen-Spalte mit einer festgelegten Breite von \emph{10mm} erzeugen}\tabularnewline%
+& \{m\{10mm\}\} & \textit{\emph{mittig} ausgerichtete Paragraphen-Spalte mit einer festgelegten Breite von \emph{10mm} erzeugen}\tabularnewline%
+& \{b\{10mm\}\} & \textit{\emph{unten} ausgerichtete Paragraphen-Spalte mit einer festgelegten Breite von \emph{10mm} erzeugen}\tabularnewline%
+\midrule%
+Tabellenüberschrift hinzufügen & \textbackslash caption\{Tabellen mit booktabs\} & \emph{fügt eine Tabellenüberschrift mit der Bezeichnung \emph{Tabellen mit booktabs} hinzu}\tabularnewline%
+Verlinkung hinzufügen & \textbackslash label\{tab: booktabs\} & \emph{fügt eine Verlinkung mit dem Namen \emph{tab: booktabs} der Tabelle hinzu, auf die referenziert werden kann}\tabularnewline%
+\midrule%
+obere Linie & \textbackslash toprule & \textit{Fügt eine breite Linie hinzu -- bestens für den Start der Tabelle geeignet}\tabularnewline%
+mittlere Linie & \textbackslash midrule & \textit{Fügt eine schmale Linie hinzu -- bestens geeignet für Abgrenzungen inmitten der Tabelle}\tabularnewline%
+untere Linie & \textbackslash bottomrule & \textit{Fügt eine breite Linie hinzu -- bestens für das Ende der Tabelle geeignet}\tabularnewline%
+\midrule%
+neue Tabellenzeile & \textbackslash \textbackslash \emph{oder} \textbackslash tabularnewline & \textit{erzeugt eine neue Tabellenzeile}\tabularnewline%
+neue Zeile in einer Zelle & \textbackslash newline & \textit{erzeugt eine neue Zeile innerhalb einer Zelle -- funktioniert nur in den Paragraphen-Spalten mit fester Breite!}\tabularnewline%
+Spalten & \& & \textit{trennt die Spalten im Quellcode von LaTex}\tabularnewline
+Tabellenumgebung schließen & \textbackslash end\{table\} & \emph{Schließt die Tabellenumgebung}\tabularnewline%
+\end{longtable}%
+%
+\subsection{Zusammenführen von mehreren Zeilen/Spalten mit \emph{multirow/multicolumn}}%
+Um Spalten einer Tabelle in LaTex zusammen zu führen nutzt man den Befehl \emph{\textbackslash mutlicolumn}. Innerhalb einer Tabelle schreibt man \emph{\textbackslash multicolumn\{Anzahl\}\{Ausrichtung\}\{Spaltentext\}} und legt die Anzahl der Spalten mit einer Zahl fest, die Ausrichtung mittels \emph{l, c} oder \emph{r} und gibt anschließend den Text seiner Wahl ein.%
+ 
+Um mehrere Zeilen einer Tabelle zusammen zu führen, nutzt man das Paket \emph{multirow}. Mit dem Befehl \emph{\textbackslash multirow[Position]\{Anzahl der Zeilen\}\{\textasteriskcentered\}} legt man die wichtigsten Parameter fest. Bei der Position handelt es sich um die vertikale Position, die mittels \emph{t, c} oder \emph{b} festgelegt werden kann. Beim Zeichen \emph{\textasteriskcentered} handelt es sich um die genutzte Breite der Zeilen und die Anzahl der Zeilen wird wie auch bei \emph{\textbackslash multicolumn} mit einer Zahl festgelegt (siehe Tabelle~\ref{tab: multirow}). Wichtig ist, dass die nächsten Zeilen der \emph{multirow} leer bleiben, sonst kann es zu Problemen kommen.%
+
+Für alles weitere muss man wie immer die Dokumentation von \emph{multirow} bemühen.%
+
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}[l]{p{0.3\textwidth}p{0.3\textwidth}p{0.32\textwidth}}
+\caption{Multiple Spalten und Zeilen}%
+\label{tab: multirow}%
+\tabularnewline
+ 
+ \toprule
+ \textbf{Bezeichnung} & \textbf{LaTex Code} & \textbf{Ausgabe/\emph{Beschreibung}}\tabularnewline
+ \midrule
+ \endfirsthead
+ 
+ \toprule
+ \textbf{Bezeichnung} & \textbf{LaTex Code} & \textbf{Ausgabe/\emph{Beschreibung}}\tabularnewline
+ \midrule
+ \endhead
+ 
+ \bottomrule
+ \endfoot
+ 
+ \bottomrule
+ \endlastfoot
+ 
+Spalten zusammenführen & \textbackslash multicolumn\{\textsc{X}\}\newline
+\{\textsc{Ausrichtung}\}\newline
+\{Spaltentext\} & \textit{Startet eine multiple Spalte mit dem Text \emph{Spaltentext}, indem es die nächsten \textsc{X} Spalten zusammenfasst. Die \textsc{Ausrichtung} muss manuell erfolgen.}\tabularnewline
+\midrule
+\multirow[t]{3}{=}{\textsc{Ausrichtung}} & l & \textit{Text wird \emph{links} ausgerichtet}\tabularnewline
+& c & \textit{Text wird \emph{zentriert} ausgerichtet}\tabularnewline
+& r & \textit{Text wird \emph{rechts} ausgerichtet}\tabularnewline
+Zeilen zusammenführen & \textbackslash multirow[Position]\newline
+\{\textsc{X}\}\{\textasteriskcentered\}\{Spaltentext\} & \textit{Startet eine multiple Zeile mit dem Text \emph{Spaltentext}, indem es die nächsten \textsc{X} Zeilen zusammenfasst. Die vertikale \textsc{Position} muss festgelegt werden.}\tabularnewline
+\midrule
+\multirow[t]{3}{=}{\textsc{Position}} & t & \textit{Text wird \emph{oben} platziert}\tabularnewline
+& c & \textit{Text wird \emph{zentriert} platziert}\tabularnewline
+& b & \textit{Text wird \emph{unten} platziert}\tabularnewline
+\end{longtable}%
+%
+\subsection{Tabellen über mehrere Seiten mit \emph{longtable}}%
+Ein wenig anders verhält es sich, wenn man eine sehr lange Tabelle über mehrere Seiten darstellen möchte. Dazu nutzt man das Paket \emph{longtable}, welches sich nur geringfügig von den normalen Tabellen mit \emph{tabular} unterscheidet.%
+
+Der wahrscheinlich wichtigste Unterschied ist, dass man eine lange Tabelle \emph{\textsc{NICHT}} in eine Tabellenumgebung schreibt. Diese Tabelle beginnt also immer genau dort, wo man sie im Quellcode auch platziert hat! Das ist auch der Grund, warum man die Tabellenüberschrift inklusive des \emph{Labels} in die Tabelle schreibt und diese Überschrift mit \emph{\textbackslash tabularnewline} abschließt.%
+
+Ebenso werden die \emph{Positions}-Befehle von \emph{tabular} ersetzt. Statt [t], [b], [c] legt man bei \emph{longtable} die Position mittels [l], [r], [c] fest. Die Spalten werden aber genauso wie in \emph{tabular} erzeugt und definiert.%
+
+Anschließend könnt ihr folgende Dinge festlegen (siehe auch Tabelle~\ref{tab: longtable}):\\
+\begin{itemize}
+\item \emph{\textbackslash endfirsthead} -- Alles, was vor diesem Befehl steht, steht in der Tabelle ganz am Anfang (z.B. die Überschriften eurer Zeilen)
+\item \emph{\textbackslash endhead} -- Zwischen \emph{\textbackslash endfirsthead} und \emph{\textbackslash endhead} legt man das fest, was am Anfang der Tabelle auf jeder neuen Seite steht (z.B. wieder die Überschriften eurer Tabelle oder so etwas wie \emph{Fortführung der Tabelle})
+\item \emph{\textbackslash endfoot} -- Zwischen \emph{\textbackslash endhead} und \emph{\textbackslash endfoot} steht das, was am Ende der Seite der Tabelle beim Seitenumbruch steht (z.B. \emph{wird auf der nächsten Seite forgesetzt}
+\item \emph{\textbackslash endlastfoot} -- Zwischen \emph{\textbackslash endfoot} und \emph{\textbackslash endlastfoot} steht das, was am Ende eurer gesamten Tabelle steht (z.B. \emph{Gesamtsumme der Einnahmen in Euro \& 0 }
+\end{itemize}%
+
+Eine kleiner Unterschied von \emph{longtable} zu \emph{tabular} ist noch, dass in der letzten Zeile vor \emph{\textbackslash end\{longtable\}} noch ein Zeilenumbruch stehen muss!
+
+Übrigens trennt \emph{longtable} automatisch die Zeile ab, die nicht mehr auf die Seite passen würde und führt sie auf der nächsten Seite fort - dabei sollte man beachten, dass eine \emph{multirow} \emph{\textsc{NICHT}} getrennt werden kann und somit eventuell große Leerstellen bei der Kombination beider Pakete entstehen können.%
+
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}[l]{p{0.3\textwidth}p{0.3\textwidth}p{0.32\textwidth}}
+\caption{Tabellen mit \emph{longtable}}%
+\label{tab: longtable}%
+\tabularnewline
+ 
+ \toprule
+ \textbf{Bezeichnung} & \textbf{LaTex Code} & \textbf{Ausgabe/\emph{Beschreibung}}\tabularnewline
+ \midrule
+ \endfirsthead
+ 
+ \toprule
+ \textbf{Bezeichnung} & \textbf{LaTex Code} & \textbf{Ausgabe/\emph{Beschreibung}}\tabularnewline
+ \midrule
+ \endhead
+ 
+ \bottomrule
+ \endfoot
+ 
+ \bottomrule
+ \endlastfoot
+ 
+lange Tabelle starten -- [Position der Tabelle] -- \{Anzahl, Ausrichtung \{Spaltenbreite\}\} & \textbackslash begin\{longtable\}[\textsc{Position}]\newline
+\{\textsc{Ausrichtung\newline
+\{Spaltenbreite\}}\} & \textit{In den eckigen Klammern steht die Ausrichtung der langen Tabelle, in den geschweiften Klammern die Ausrichtung der jeweiligen Spalte -- die Größe kann bei einigen Spaltenarten in geschweiften Klammern festgelegt werden. Die Anzahl der Spalten ergibt sich aus der Anzahl der genutzten Buchstaben -- einer pro Spalte.}\tabularnewline
+\midrule
+\multirow[t]{3}{=}{\textsc{Position}} & l & \textit{Platziert die Tabelle \emph{links}}\tabularnewline
+& r & \textit{Platziert die Tabelle \emph{rechts}}\tabularnewline
+& c & \textit{Platziert die Tabelle \emph{zentriert}}\tabularnewline
+\midrule
+Überschrift der Tabelle & \textbackslash endfirsthead & \textit{Vor diesem Kommando steht alles, was nur auf der ersten Seite der Tabelle ganz oben/im Kopf jener stehen soll!}\tabularnewline
+Überschrift der Tabelle nach Seitenumbruch & \textbackslash endhead & \textit{Zwischen \textbackslash endfirsthead und diesem Kommando steht alles, was nach Seitenumbruch in der Tabelle oben/im Kopf jener stehen soll!}\tabularnewline
+Fuß der Tabelle nach Seitenumbruch & \textbackslash endfoot & \textit{Zwischen \textbackslash endhead und diesem Kommando steht alles, was beim Seitenumbruch in der Tabelle unten/im Fuß jener stehen soll!}\tabularnewline%
+Fuß der Tabelle am Ende & \textbackslash endlastfoot & \textit{Zwischen \textbackslash endfoot und diesem Kommando steht alles, was auf der letzten Tabellenseite ganz unten/im Fuß jener stehen soll!}\tabularnewline
+Lange Tabelle beenden & \textbackslash end\{longtable\} & \emph{Schließt die lange Tabelle}\tabularnewline%
+\end{longtable}%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Formeln}%
+Eine sehr gute und detaillierte Anleitung zu Mathematik und Formeln findet man auf \href{https://www.sharelatex.com/learn/Mathematical_expressions}{Sharelatex} und im \textsc{quickndirty-cheatsheet} --- die Sicherheitskopien der Seite in pdf-Form liegen im Ordner \textsc{/docs/mathematics/}.%
+
+Dieses Kapitel würde den Rahmen völlig sprengen, aber es sei gesagt, dass Formeln und deren Anordnung extrem einfach in LaTex sind und diese Einfachheit den Ärger über Tabellen mit LaTex verblassen lässt.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Literatur}%
+\label{sec: literatur}%
+Die Literatur schreibt man in die Datei \emph{literatur.bib}, welche relativ zu eurem Template im Verzeichnis \textsc{/frontbackmatter/} liegt. Hier kommt euch \emph{TexMaker} zu Hilfe, denn unter \emph{Bibliography -> biblatex} findet man Verschiedene Arten von Literatur, die man mit einem Klick hinzufügen kann.%
+
+Dabei sollte man beachten, dass zwischen den einzelnen Quellen unbedingt eine \textsc{Leerzeile} sein sollte, da es sonst eventuell zu Problemen beim Referenzieren kommt.%
+
+Im ersten Feld gibt man seinen \emph{Key} für diese Quelle an. Der \emph{Key} funktioniert später beim zitieren wie ein \emph{Label}. Man kann damit auf den entsprechenden Eintrag verweisen. Alle anderen Felder sind größtenteils selbsterklärend und können sonst in der Dokumentation für Biblatex nachgelesen werden.%
+
+Anschließend kann man mit der Option \emph{Bibliography -> Clean} alle optionalen Felder automatisch entfernen lassen, sofern die Buchstaben \emph{OPT} am Anfang der Zeile nicht entfernt wurden.%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Zitieren}%
+\label{sec: zitieren}
+Nachdem man seine Quellen dem Literaturverzeichnis hinzugefügt hat (\ref{sec: literatur})und diese mit \emph{Keys} versehen hat versehen hat, kann man diese anschließend Zitieren.%
+
+Für indirekte Zitate muss man nur die Quelle am Ende des Absatzes/Satzes angeben. Wie das geht, sieht man in \ref{tab: zitieren}. Bemerkungen kann man einfügen, muss man aber nicht. Als \emph{Notiz nachher} empfiehlt es sich, z.B. eine Seitenzahl anzugeben wie hier am Ende des Satzes zu sehen. \cite[][S.22 ff]{einstein}\footnote{Natürlich zitiere ich hier nicht aus dem Artikel von Albert Einstein, es dient in diesem Zusammenhang lediglich zu Vorführungszwecken.}%
+
+Manchmal möchte man trotzdem unbedingt manuell Anführungszeichen setzen. Man beachte, dass man immer ein Zitat öffnen und schließen muss. Auf ein \guillemotright \space sollte immer später ein \guillemotleft \space folgen, da es sonst zu Fehlern beim Kompilieren kommt. Deshalb wurde die Konfiguration der \emph{User-Tags} in der \textsc{readme.md} gleich so festgelegt.%
+
+Für längere wörtliche Zitate jedoch sollte man den Befehl \emph{Blockzitat} nutzen. Damit werden Zitate entweder in Anführungszeichen gesetzt oder automatisch in Blöcke geschrieben, sobald sie 3 Zeilen überschreiten. Möchte man Anführungszeichen trotz Blockschreibweise haben, so fügt man die Anführungszeichen einfach vorher mittels Tastenkombination hinzu.%
+
+Ebenso benötigt man häufig die Auslassungspunkte aus Tabelle~\ref{tab: zitieren}, um für den Sinn des Zitates nicht relevante Textstellen zu auszulassen und zu markieren.%
+
+Damit die Literaturreferenzen im Dokument erkannt werden, muss man vor dem Kompilieren den selbst erstellten \emph{User Command} für \emph{biblatex} starten und anschließend die PDF mindestens zwei mal Kompilieren, damit das Ergebnis vollständig sichtbar wird.%
+
+Falls man Zitate in anderen Sprachen nutzen möchte, so sollte man für die entsprechenden Befehle in die Dokumentation des Paketes \emph{csquotes} schauen.%
+
+%
+{\tabulinesep=1.2mm%
+\begin{table}[!hbt]%
+\caption{zitieren}%
+\label{tab: zitieren}%
+\begin{tabu} to \textwidth {X[l]X[l]X[l]}%
+\toprule%
+\textbf{Bezeichnung} & \textbf{Latex Code} & \textbf{Ausgabe/\emph{Beschreibung}}\tabularnewline%
+\midrule%
+indirektes Zitat & \textbackslash cite[Notiz vorher][Notiz nachher]\{key\} & \cite[Notiz vorher][Notiz nachher]{einstein}\tabularnewline%
+direktes Zitat &%
+	\textbackslash blockcquote[vorher][nachher]\newline
+	\{key\}\{Hier steht ein wörtliches Zitat\}.	
+	& \blockcquote[vorher][nachher]{einstein}{Hier steht ein wörtliches Zitat}.\tabularnewline%
+Auslassungszeichen bzw. Pünktchen &\textbackslash textelp\{\} & \textelp{} \tabularnewline%
+\multirow[t]{2}{=}{Anführungszeichen -- \textit{Tastenkombination:} \textsc{shift+f1}} & \guillemotright & Anführungszeichen doppelt öffnen\tabularnewline%
+ & \guillemotleft & Anführungszeichen doppelt schließen\tabularnewline%
+ \multirow[t]{2}{=}{kleine Anführungszeichen -- \textit{Tastenkombination:} \textsc{shift+f2}} & \guilsinglright & Anführungszeichen einfach öffnen\tabularnewline%
+ & \guilsinglleft & Anführungszeichen einfach schließen\tabularnewline%
+\bottomrule%
+\end{tabu}%
+\end{table}%
+}%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fußnoten}%
+Fußnoten setzt man wie in \ref{tab: fussnoten} zu sehen.\\%
+{\tabulinesep=1.2mm%
+\begin{table}[!hbt]%
+\caption{Fußnoten}%
+\label{tab: fussnoten}%
+\begin{tabu} to \textwidth {X[l]X[l]X[l]}%
+\toprule%
+\textbf{Bezeichnung} & \textbf{Latex Code} & \textbf{Ausgabe/\emph{Beschreibung}}\tabularnewline%
+\midrule%
+Fußnote & Text \textbackslash footnote\{blabla\} & Text \footnote{blabla} \\%
+\bottomrule%
+\end{tabu}%
+\end{table}%
+}%
+\newpage

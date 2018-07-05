@@ -32,11 +32,11 @@ Beschrieben wird die Installation und Einrichtung quick and dirty für einen Win
       - Für Biblatex lauten die Felder wie folgt:
         - Menu Item: `biblatex`
         - Command:`biber %`
-      - Folgende Befehle solltet ihr nun für das Zitieren unter *User -> User Tags -> Edit User Tags* hinzufügen. Diese Befehle ruft ihr anschließend mit `SHIFT+F1...F4` auf. Die Zeichen werden über eine Tastenkombination über ALT+NUMPAD-Zahlenreihe eingegeben oder aus diesem Text kopiert und eingefügt. Die folgenden Zeilen enthalten jeweils drei Teile in der entsprechenden Reihenfolge - *Menu Item* *Latex Content* *Tastenkombination*. Aus diesen solltet ihr insgesamt 4 *User Tags* erstellen:
-        - `open guillemets` `»` `ALT+175`
-        - `close guillemets` `«` `ALT+174`
-        - `open single guillemets` `›` `ALT+0155`
-        - `close single guillemets` `‹` `ALT+0139`        
+      - Folgende Befehle solltet ihr nun für das Zitieren unter *User -> User Tags -> Edit User Tags* hinzufügen. Diese Befehle ruft ihr anschließend mit `SHIFT+F1` oder `SHIFT+F2` auf. Die zwei Zeilen enthalten jeweils *Menu Item* und *Latex Content* in der entsprechenden Reihenfolge. Aus diesen solltet ihr also insgesamt 2 *User Tags* erstellen - das `@` lässt euch nach der Tastenkombination direkt an diese Stelle springen:
+        - `Quotationmarks` `»@«` 
+          - Tastenkombination der Sonderzeichen: `ALT+175` und `ALT+174`
+        - `Quotationmarks small` `›@‹` 
+          - Tastenkombination der Sonderzeichen: `ALT+0155` und `ALT+0139`         
   -[Active-Pearl herunterladen](https://www.activestate.com/activeperl/downloads) *meine Version:5.24.3.2404 x64* (sonst funktionieren die Glossare nicht)
     - Pearl installieren
     - Verzeichnis nicht ändern, *File extension* und *PATH* zum Pearl-Interpreter angekreuzt lassen
@@ -53,38 +53,33 @@ Wer direkt anfangen möchte, kann das nächste Kapitel überspringen.
 - Eine tolle Linksammlung zu allen möglichen Themen gibt es [hier](https://tu-dresden.de/mn/math/stochastik/das-institut/beschaeftigte/jan-rudl/latex_win). Gerade zum hyperref-Paket findet man dort alles Wichtige.
 - Eine Kurzanleitung zum hyperref-Paket gibt es [hier](http://www.pa.op.dlr.de/~PatrickJoeckel/pdflatex/index.html)
 - Für eine Übersicht der Symbole habe ich [hier](/docs/symbols-a4.pdf) eine PDF hinterlegt. [CTAN Latex-Symbole](http://www.ctan.org/tex-archive/info/symbols/comprehensive/symbols-a4.pdf)
+- Das Layout kann man sich das Layout anzeigen lassen vielleicht hinzufügen
+- Mit geometry kann man die Seitenränder auf bestimmte Werte einstellen, was mit dem KOMA-Script so nicht möglich ist.
 
 ### Diplomarbeit beginnen
 Informationen zu Abschlussarbeiten der Fakultät Elektrotechnik gibt es auf der [Seite der Fakultät Elektrotechnik der HTW Dresden](https://www.htw-dresden.de/fakultaet-elektrotechnik/fakultaet/studierende/abschlussarbeiten.html) und auch im [OPAL](https://bildungsportal.sachsen.de/opal/auth/RepositoryEntry/16966647814/CourseNode/97409953057309?5).
-Nun noch das [Template](/template-htw-abschlussarbeit.tex) herunterladen und falls nötig die [Quick'n'Dirty Anleitung](/readme/quickndirty-anleitung.pdf) herunterladen, lesen und verinnerlichen.
+Nun noch das [Template](/template-htw-abschlussarbeit.tex) herunterladen und die [Quick'n'Dirty Anleitung](/readme/quickndirty-anleitung.pdf) durchlesen.
 Anschließend steht mit dem [Cheat-Sheet](/readme/cheatsheet-quickanddirty.pdf) eine Übersicht der wichtigsten Befehle zur Verfügung.
 
+### Zusatzinfos
 Autor und Titel werden automatisch in die PDF-Dokument-Informationen übernommen. Wer es ganz genau machen will, kann auch noch Stichworte und Subjekt hinzufügen - das geht in der Datei [pakete.tex](/style/pakete.tex). Einfach auskommentieren und Stichworte/Subjekt hinzufügen.
 
-
-
-Eventuelle to-do's:
+### Readme-To-Do
 Kommando zum Kompilieren für alles erstellen. Mit xelatex, Glossaries, Biblatex, 2x Xelatex und view pdf.
 Anschließend Readme aktualisieren, Links für die Dokumentation einfügen.
 
-tabularx statt tabu verwenden? wenn ja, warum, wenn nein, warum nicht?
-longtable unbedingt noch einfügen
-
-eventuell das requirepackage einfügen von overleaf/uni stuttgart tex-file - um fehler zu verhindern. - link zum TUD/Uni-Stuttgart template einfügen
-
 cheatsheet vollständig befüllen
-
-eventuell seitenränder mit geometry anpassen
 
 
 Befehle einfügen
 u.a.
 \tabularnewline
+\toprule
+\bottomrule
 \midrule
 \textwidth
-command:
+
+tags:
 insert gfx
 table außenumgebung
 longtable
-evtl. quotationmarks nur in öffnen und schließen hinzufügen
-kleine quotationmarks löschen aus den user-commands
