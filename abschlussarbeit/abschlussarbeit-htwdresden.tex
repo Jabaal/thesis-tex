@@ -1,0 +1,30 @@
+%%% FORMAT UND AUFBAU
+\input{./style/format-und-aufbau.tex}% Alles was mit dem Format und Aufbau zu tun hat, ist hier zu finden
+%%% LADEN UND KONFIGURIEREN ALLER BENÖTIGTEN PAKETE
+\input{./style/pakete.tex}%
+%%% ABKÜRZUNGEN
+\input{./content/abkuerzungen.tex}%
+%%% FORMELZEICHEN UND SYMBOLE
+\input{./content/formelzeichenundsymbole.tex}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}%
+%%% SPEZIFISCHES TITELBLATT
+\input{./frontbackmatter/titel.tex}%
+%%% VERZEICHNISSE
+\input{./frontbackmatter/verzeichnisse.tex}%
+%%% INHALT
+\cleardoubleoddplainpage% Bei Zweiseitigem Druck wird so IMMER der Inhalt auf der rechten Seite gestartet und falls nötig eine Seite ohne Titel, aber mit Fuß eingefügt. Sieht einfach besser aus. \cleardoubleoddemptypage fügt leere Seite ein.
+\pagenumbering{arabic}% hier beginnt die Zählung der Seiten in arabischen Zahlen
+\input{./content/vorwort.tex}%
+%%% LITERATUR- UND QUELLENVERZEICHNIS
+\cleardoubleoddplainpage% Titel, aber nicht Fuß unterdrückt - und eine Leere Seite vor der Bibliographie, so dass diese Rechts startet
+\printbibliography[% Erstellt das Verzeichnis
+	heading=bibintoc% Die Überschrift zum Inhaltsverzeichnis hinzufügen
+	]%
+\newpage%
+%%% EIDESSTATTLICHE ERKLÄRUNG
+\input{./frontbackmatter/eidesstatt-erklaerung.tex}%
+%%% ANLAGEN
+\input{./frontbackmatter/anlagen.tex}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}%

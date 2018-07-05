@@ -1,52 +1,48 @@
-%%% ALLGEMEINE FORMATIERUNGEN
+%%%%%%%%%%%%%%% ALLGEMEINE FORMATIERUNGEN
 \documentclass[%
 	twoside=false,% Doppelseitig schreiben oder nicht. Wichtig für automatische Bindekorrektur (BCOR).
 	paper=a4,% Papiergröße festlegen, hier A4
-	%DIV=calc,% Mit Hilfe der Option DIV=Faktor wird festgelegt, in wie viele Streifen die Seite horizontal und vertikal bei der Satzspiegelkonstruktion eingeteilt wird. DIV=calc nimmt einem diese Arbeit ab (hängt ja auch von der Schriftart und -größe ab usw.) - verwenden, wenn geometry nicht genutzt wird
-	%BCOR=0mm,% Mit Hilfe der Option BCOR=Korrektur geben Sie den absoluten Wert der Bindekorrektur an, also die Breite des Bereichs, der durch die Bindung von der Papierbreite verloren geht. Am besten in der Druckerei nachfragen! Man kann einen Wert von ca. 10mm für Arbeiten bis 100 Seiten annehmen - Verwenden, falls geometry nicht genutzt wird
+	%DIV=calc,% Mit Hilfe der Option DIV=Faktor wird festgelegt, in wie viele Streifen die Seite horizontal und vertikal bei der Satzspiegelkonstruktion eingeteilt wird. DIV=calc nimmt einem diese Arbeit ab (hängt ja auch von der Schriftart und -größe ab usw.) -- nicht in Verbindung mit GEOMETRY VERWENDEN
+	%BCOR=10mm,% Mit Hilfe der Option BCOR=Korrektur geben Sie den absoluten Wert der Bindekorrektur an, also die Breite des Bereichs, der durch die Bindung von der Papierbreite verloren geht. Am besten in der Druckerei nachfragen! Man kann einen Wert von ca. 10mm für Arbeiten bis 100 Seiten annehmen. -- nicht in Verbindung mit GEOMETRY VERWENDEN
 	parskip=false,% Wie Absätze gekennzeichnet werden. Zitat: "parskip=false Absätze werden durch einen Einzug der ersten Zeilen von einem Geviert (1 em) gekennzeichnet. Der erste Absatz eines Abschnitts wird nicht eingezogen." Alles andere ist hier nicht sinnvoll, siehe scrguide.pdf und Leitfaden_fuer_wiss_Dokumente.pdf!
 	fontsize=11pt,% Schriftgröße
 	listof=totoc,% Abbildungsverz. usw. werden in das Inhaltsverzeichnis aufgenommen
-	bibliography=totoc,%  Literaturverzeichnis wird in das Inhaltsverzeichnis aufgenommen
+	bibliography=totoc,% Literaturverzeichnis wird in das Inhaltsverzeichnis aufgenommen
 	captions=abovetabular% Die Beschriftungen für Tabellen sind über der Tabelle
 	]{scrreprt}%
-%%% HEADER und FOOTER DESIGN
+%%%%%%%%%%%%%%% HEADER und FOOTER DESIGN
 \usepackage[% Header und Footer designen
-	autooneside=true,% bei true werden nur die höheren Kolumnentitel in den Header geschrieben
+	autooneside=true,% 
 	headsepline=true,% Trennungsstrich für den Header (außer bei neuen Kapiteln und bei den Indizes)
 	footsepline=true,% Trennungsstrich für den Footer (außer bei neuen Kapiteln und bei den Indizes)
 	plainfootsepline=true% Trennungsstrich für den Footer bei neuen Kapiteln und bei den Indizes
 	]{scrlayer-scrpage}%
-%%% WAS steht WO im HEADER und FOOTER
+%%%%%%%%%%%%%%% WAS steht WO im HEADER und FOOTER
 \pagestyle{scrheadings}% scrheadings einstellen, damit man alles weitere im Header und Footer richtig definieren kann
 \clearscrheadfoot% Header und footer clearen (sonst hat man die Seitenzahl eventuell zwei mal im Footer...)
 \automark[section]{chapter}% Von den ersten beiden Gliederungsebenen jeweils die niedrigste im Header anzeigen
 \chead{\headmark}% Zentrierte Überschrift im Header
  \ofoot[\pagemark]{\pagemark}% Seitenzahl für einseitigen Druck im Footer auf der rechten Seite platzieren, für zweiseitigen Druck immer außen platzieren
 \addtokomafont{pagefoot}{\small}% Fußnoten etwas kleiner als die normale Schriftgröße setzen - zur Sicherheit den Befehl wiederholen - falls sich die Standard-Einstellungen ändern (safety first!)
-%%% SPRACHE
-\usepackage{polyglossia}% statt Babel nutzt man für xelatex polyglossia!
+%%%%%%%%%%%%%%% SPRACHE
+\usepackage{polyglossia} % statt Babel nutzt man für xelatex polyglossia!
 \setmainlanguage[%
-	variant=german,%es geht auch austrian oder swiss
-	spelling=new,%neue Rechtschreibung ein/aus
-	latesthyphen=true,%ausschalten bei bugs - neueste hyphenation
-	babelshorthands=false%Trennung wie beim Paket Babel ausschalten		
+	variant=german,% es geht auch austrian oder swiss
+	spelling=new,% neue Rechtschreibung ein/aus
+	latesthyphen=true,% ausschalten bei bugs - neueste hyphenation
+	babelshorthands=false% Trennung wie beim grauenvollen Paket Babel ausschalten		
 	]%
 {german}%
 \usepackage[T1]{fontenc}% Damit man Text sinnvoll kopieren kann (u.a. Umlaute usw. - damit ein Ü richtig im Inhaltsverzeichnis der PDF angezeigt wird
-%%% SCHRIFTART
+%%%%%%%%%%%%%%% SCHRIFTART
 \usepackage{fontspec}% "Normale" Schriftarten können verwendet werden (die, die auf dem PC selbst installiert sind)
 \setmainfont{Arial}% Schriftart festlegen
-%%% SPRACHE mit babel
-% \usepackage[ngerman]{babel}% Für richtige Silben- und Worttrennung in der jeweiligen Sprache und die richtige Sprache in den automatisch generierten Verzeichnissen wird das Paket babel genutzt.
-% Paket babel ngerman für die "neue" deutsche Sprache nutzen - eingeführt 1998, es ist 2018!
-% siehe: https://tex.stackexchange.com/questions/67549/whats-the-difference-between-ngerman-and-german-in-babel
-%%% ZEILENABSTAND
+%%%%%%%%%%%%%%% ZEILENABSTAND
 \usepackage{setspace}% Zeilenabstand einstellen mit setspace.sty - so werden auch in Fußzeilen die alten Abstände beibehalten! Siehe Sündenkatalog
-\onehalfspacing% 1,5 Zeilig gewählt
+\onehalfspacing % 1,5 Zeilig gewählt
 % oder, falls dieses Paket mal nicht funktioniert:
 % \linespread{1.2} % für Werte schaut man hier: https://www.sharelatex.com/learn/Paragraph_formatting#Line_spacing
-%%% TYPEAREA
+%%%%%%%%%%%%%%% TYPEAREA
 \usepackage{geometry}% muss nach KOMA geladen werden. Verändert die Typearea
 \geometry{left=25mm,% 
 	right=30mm,%
@@ -54,16 +50,6 @@
 	bottom=20mm,%
 	bindingoffset=0mm,% bindingoffset muss gesetzt werden in der Druckerei
 	%showframe,% zeigt den Frame an - nur zum Debugging nutzen!
-	%headsep=5mm,% Abstand des Headers zum Text
-	%footskip=10mm% Abstand des Footers zum Text
+	headsep=4mm,% Abstand des Headers zum Text
+	footskip=8mm% Abstand des Footers zum Text
 	}%
-%
-%
-%%% LEERE SEITEN
-%\usepackage{afterpage}% Paket für eine leere Seite laden, damit unser Dokument genau so aussieht, wie gefordert (insbesondere nötig für zweiseitigen Druck!!!
-% siehe https://tex.stackexchange.com/questions/36880/insert-a-blank-page-after-current-page
-%\newcommand\blankpage{% Befehl neu definieren - leere Seite ohne Header und Footer und den Counter für das Seitenzählen zurücksetzen
-	%\null%
-    %\thispagestyle{empty}%
-    %\addtocounter{page}{-1}%
-    %\newpage}%

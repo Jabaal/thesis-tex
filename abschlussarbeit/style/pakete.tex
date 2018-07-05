@@ -8,36 +8,26 @@
 	]%
 	{biblatex}% Bibliographie-Management-Paket
 \addbibresource{./frontbackmatter/literatur.bib}% Dateipfad der Literatur-Datei
-%%%%%%%%%%%%%%% LABEL, CAPTIONS, POSITIONIERUNG, LISTEN USW.
-%\usepackage[%
-%	format=hang,% unter dem Wort Abbildung steht kein Text
-%	labelsep=endash,% der Gedankenstrich beendet den Abbildungsnamen Abbildung 1 - blablabla
-%	]%
-%	{caption}% Textformat und der Captions lassen sich hiermit konfigurieren
-%\usepackage{float}% damit kann man wirklich an der Stelle Bilder und Tabellen positionieren, wo man es angibt - Befehl: H statt h
+%%%%%%%%%%%%%%% ZITIEREN
+\usepackage[%
+	autostyle=true,% adaptiert den Quotation-Style durchgehend anhand der aktuell benutzten Sprache
+	german=guillemets% Deutsche Sprache - entweder quotes (Anführungszeichen) oder guillemets (Anführungsstriche) 
+	]{csquotes}% Paket für sinnvolles Zitieren!
+\MakeAutoQuote{»}{«}% Zitierbefehle neu definieren, Shift+F1
+\MakeAutoQuote*{›}{‹}% Shift+F2
+\SetCiteCommand{\autocite}%
 %%%%%%%%%%%%%%% BILDER
 \usepackage{graphicx}% Paket für sinnvolles einfügen von Grafiken
 \graphicspath{{./gfx/}}% Pfad für die Bilder festlegen - relativ zum Haupttex-file
 \usepackage[% einfachere positionier-Befehle für doppelseitigen Druck bei Grafiken
 	export% damit kann man im graphicx-paket die Befehle nutzen
 	]{adjustbox}%
-%%%%%%%%%%%%%%% ZITIEREN
-\usepackage[%
-	autostyle=true,% adaptiert den Quotation-Style durchgehend anhand der aktuell benutzten Sprache
-	german=guillemets% Deutsche Sprache - entweder quotes (Anführungszeichen) oder guillemets (Anführungsstriche) 
-	]{csquotes}% Paket für sinnvolles Zitieren!
-\MakeAutoQuote{»}{«}% Zitierbefehle neu definieren, Shift+F1 und Shift+F2
-\MakeAutoQuote*{›}{‹}% Shift+F3 und Shift+F4
-\SetCiteCommand{\autocite}%
 %%%%%%%%%%%%%%% TABELLEN
-\usepackage{tabu}% bessere Tabellen
 \usepackage{booktabs}% booktabs für schönere Tabellen und in glossaries benötigt
-\usepackage{multirow}% multiple zeilen und spalten
+\usepackage{multirow}% multiple zeilen
 \usepackage{longtable}% Für Tabellen über mehrere Seiten - muss vor hyperref stehen
 %%%%%%%%%%%%%%% MATHEMATIK
 \usepackage{amsmath}% Das einzig wahre Paket für tolle Formeln
-%%%%%%%%%%%%%%% HYPHENATION (additional)
-\usepackage{seqsplit}% trennt bei Verwendung lange Zeichenfolgen an so gut wie jeder Stelle
 %%%%%%%%%%%%%%% VERLINKEN
 \usepackage[% sollte immer nach Sprachen und Biliographie geladen werden!
 	bookmarks=true,% Bookmarks einschalten
@@ -62,14 +52,15 @@
 \usepackage{bookmark}% "Adding package bookmark improves bookmarks handling. More features and faster updated bookmarks" - sollte nach hyperref geladen werden
 %%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[all]{hypcap}% Damit springt Hyperref nicht zu den Captions, sondern zum Start des Bildes/der Tabelle - muss nach hyperref geladen werden
-%
-%
-%%% ABBILDUNGEN UND SYMBOLE - muss nach Hyperref geladen werden
-%\usepackage[% Das Paket glossaries wird benötigt, um das Abkürzungsverzeichnis und das Verzeichnis für Formelzeichen und Symbole zu erstellen.
-%	nomain,% kein "normaler" Glossar soll erstellt werden
-%	toc,% Soll im Inhaltsverzeichnis auftauchen
-%	stylemods=longbooktabs,% extra Stile für Verzeichnisse
-%	symbols,% Symbole sollen erstellt werden
-%	abbreviations% Abkürzungen sollen erstellt werden
-%	]{glossaries-extra}%
-%\makeglossaries% Jetzt können die Glossare erstellt werden
+%%%%%%%%%%%%%%% ABBILDUNGEN UND SYMBOLE
+\usepackage[% muss nach Hyperref geladen werden
+	nomain,% kein "normaler" Glossar soll erstellt werden
+	toc,% Soll im Inhaltsverzeichnis auftauchen
+	stylemods=longbooktabs,% extra Stile für Verzeichnisse
+	symbols,% Symbole sollen erstellt werden
+	abbreviations% Abkürzungen sollen erstellt werden
+	]{glossaries-extra}% Das Paket glossaries wird benötigt, um das Abkürzungsverzeichnis und das Verzeichnis für Formelzeichen und Symbole zu erstellen.
+\makeglossaries% Jetzt können die Glossare erstellt werden
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%"Satzspiegelberechnung mit demselben DIV -Argument, das beim letzten Aufruf an gegeben wurde, erneut durchführen." - Nur, wenn KOMA-Script zur Satzspiegelberechnung verwendet wird! sonst auskommentieren
+%\KOMAoptions{DIV=last}
