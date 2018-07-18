@@ -61,6 +61,20 @@
 	abbreviations% Abkürzungen sollen erstellt werden
 	]{glossaries-extra}% Das Paket glossaries wird benötigt, um das Abkürzungsverzeichnis und das Verzeichnis für Formelzeichen und Symbole zu erstellen.
 \makeglossaries% Jetzt können die Glossare erstellt werden
+%%%%%%%%%%%%%%% ANLAGEN
+\usepackage{forest}% Datei-/Ordnerstruktur im Anhang
+% siehe https://tex.stackexchange.com/questions/328886/making-a-directory-tree-of-folders-and-files/328987#328987 für weitere Erklärungen
+\definecolor{folderbg}{RGB}{185,185,185}% Ordnerfarbe
+\definecolor{folderborder}{RGB}{125,125,125}% Randfarbe des Ordners
+\def\Size{4pt}
+\tikzset{% "zeichnet" den Ordner als Bild
+      folder/.pic={
+        \filldraw[draw=folderborder,top color=folderbg!50,bottom color=folderbg]
+          (-1.05*\Size,0.2\Size+5pt) rectangle ++(.75*\Size,-0.2\Size-5pt);  
+        \filldraw[draw=folderborder,top color=folderbg!50,bottom color=folderbg]
+          (-1.15*\Size,-\Size) rectangle (1.15*\Size,\Size);
+      }
+    }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%"Satzspiegelberechnung mit demselben DIV -Argument, das beim letzten Aufruf an gegeben wurde, erneut durchführen." - Nur, wenn KOMA-Script zur Satzspiegelberechnung verwendet wird! sonst auskommentieren
 %\KOMAoptions{DIV=last}

@@ -1,6 +1,54 @@
 \appendix% Anhang starten
 \chapter*{Anlagen}% Überschrift Ohne Nummerierung hinzufügen
-\label{chap: anhang}% Setzt ein Label für anlagen
+\label{chap: anlagen}% Setzt ein Label für anlagen
 \addcontentsline{toc}{chapter}{Anlagen}% Zum Inhaltsverzeichnis hinzufügen
 Hier die Anlagen hinzufügen. Die Anforderungen sind sehr unterschiedlich. Muss noch überarbeitet werden.
 \newpage%
+
+\section*{Datei-/Ordnerstruktur}% Datei und Ordner-Struktur
+\begin{forest}
+      for tree={
+%        font=\ttfamily,% legt die Schriftart fest
+        grow'=0,%
+        child anchor=west,%
+        parent anchor=south,%
+        anchor=west,%
+        calign=first,%
+        inner xsep=7pt,%
+        edge path={%
+          \noexpand\path [draw, \forestoption{edge}]%
+          (!u.south west) +(7.5pt,0) |- (.child anchor) pic {folder} \forestoption{edge label};%
+        },%
+        % style for your file node 
+        file/.style={edge path={\noexpand\path [draw, \forestoption{edge}]%
+          (!u.south west) +(7.5pt,0) |- (.child anchor) \forestoption{edge label};},%
+          inner xsep=2pt,
+%          font=\small\ttfamily% legt die Schriftart für die Datei fest
+                     },
+        before typesetting nodes={
+          if n=1
+            {insert before={[,phantom]}}
+            {}
+        },
+        fit=band,
+        before computing xy={l=15pt},
+      }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Hier kommt die Datei-/Ordnerstruktur hin  
+    [USB-Stick
+      [Ordner 1
+      ]
+      [Ordner 2
+        [Ordner 2.1
+        ]
+        [Ordner 2.2
+        ]
+        [Datei.pdf,file
+        ]
+      ]
+      [Ordner 3
+      ]
+      [Ordner 4
+      ]
+    ]
+ \end{forest}
+\newpage
