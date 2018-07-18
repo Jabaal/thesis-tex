@@ -1,0 +1,131 @@
+%%%%%%%%%%%%%%% DOCUMENTCLASS
+\documentclass[%
+    	paper=a4,% Papiergröße
+    	parskip=never,% niemals einen Parskip haben
+    	fontsize=10pt% Schriftgröße
+    	]{scrartcl}%
+%%%%%%%%%%%%%%% TYPEAREA
+\usepackage{geometry}%
+	\geometry{%
+	left=2mm,% 
+	right=2mm,%
+	top=0mm,%
+	bottom=2mm,%
+	includehead,% Kopfzeile gehört zur Typearea
+	includemp,% Marginpar gehört zur Typearea
+	headsep=2mm,% Abstand des Headers zum Text
+	nofoot,% kein Footer
+	marginparwidth=20mm,% 20mm auf der linken Seite sind frei
+	marginparsep=2mm,% 4mm bis der Text los geht
+	reversemp% Margin auf der linken seite
+	}%
+%%%%%%%%%%%%%%% COLORS
+	\usepackage{xcolor}% für Farben
+	\definecolor{header-background}{RGB}{135,206,250}%
+%%%%%%%%%%%%%%% HEADER/FOOTER
+	\usepackage[%
+		automark,% damit später die Kopfzeile richtig gesetzt werden kann
+		headwidth=paper:-24mm,% gesamte Papierbreite für die Kopfzeile
+		headsepline% headerlinie einschalten
+		]{scrlayer-scrpage}%
+	\pagestyle{scrheadings}% Kopfzeilen bearbeiten
+	\clearpairofpagestyles% Vorformatierung von Kopf- und Fußzeile löschen
+	\ihead*{\hspace{7mm}Quick and dirty -- Cheatsheet}% Title top left
+	\ohead*{\pagemark\hspace{7mm}}% Pagenumber top right
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% from scrguide to color header
+	\DeclareLayer[clone=scrheadings.head.oneside,%
+		contents={%
+			\color{header-background}%
+			\rule[-\dp\strutbox]%
+			{\layerwidth}{\layerheight}%
+			}%
+		]{scrheadings.head.oneside.background}%
+	\DeclareLayer[clone=scrheadings.head.odd,%
+		contents={%
+			\color{header-background}%
+			\rule[-\dp\strutbox]%
+			{\layerwidth}{\layerheight}%
+			}%
+		]{scrheadings.head.odd.background}%
+	\DeclareLayer[clone=scrheadings.head.even,%
+		contents={%
+			\color{header-background}%
+			\rule[-\dp\strutbox]%
+			{\layerwidth}{\layerheight}%
+			}%
+		]{scrheadings.head.even.background}%
+	\AddLayersAtBeginOfPageStyle{scrheadings}{%
+		scrheadings.head.oneside.background,%
+		scrheadings.head.odd.background,%
+		scrheadings.head.even.background%
+		}%
+%%%%%%%%%%%%%%% TABLES
+    \usepackage{array}%
+    \usepackage{booktabs}%
+    \usepackage{longtable}%
+%%%%%%%%%%%%%%% CODE HIGHLIGHTING
+	\usepackage[%
+		cache=false%
+		]{minted}%
+	\setminted[latex]{%
+		autogobble=true,% 
+		breakanywhere=true,% 
+		breaklines=true,%
+		breaksymbol=,% 
+		breakanywheresymbolpre=% 
+		}%
+%%%%%%%%%%%%%%% DEBUG	
+	\usepackage{lipsum}% adds lipsum
+%	\usepackage{layout}% shows layout on page
+%		\makeatletter% layout in mm
+%			\renewcommand*{\lay@value}[2]{%
+% 				\strip@pt\dimexpr0.351459\dimexpr\csname#2\endcsname\relax\relax mm%
+%				}%
+%		\makeatother%
+	\KOMAoptions{%
+%		draft=true% small black boxes in overfull lines
+		overfullrule=true% like draft - sometimes works better
+		}%
+%	\geometry{showframe}% zeigt den Frame an
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\renewcommand{\arraystretch}{1.2}% Tabellenzeilenabstände festlegen
+	\begin{longtable}[l]{p{0.2\textwidth}p{0.4\textwidth}p{0.33\textwidth}}%
+		\toprule%
+		\textbf{Beschreibung}/\newline
+		\textsc{Tastenkombination} & \textbf{LaTex-Code} & \textbf{Ausgabe}/\emph{Beschreibung}\tabularnewline% 
+ 		\midrule%
+ 		\endfirsthead% 
+ 		\toprule%
+		\textbf{Beschreibung} & \textbf{LaTex-Code} & \textbf{Ausgabe/\emph{Beschreibung}}\tabularnewline%
+ 		\midrule%
+ 		\endhead%
+ 		\bottomrule%
+ 		\endfoot%
+ 		\bottomrule%
+ 		\endlastfoot%
+%
+minted- nested in minipage-environment & 
+\begin{minipage}[t]{0.33\textwidth}
+\begin{minted}{latex }
+\textbf{Beschreibung} & 
+\textbf{LaTex-Code} & 
+\textbf{Ausgabe/\emph{Beschreibung}}
+\tabularnewline
+}
+\end{minted} 
+\end{minipage}
+&
+line one\newline 
+line two\newline
+line three\newline 
+line four\newline 
+line five\newline 
+line six\tabularnewline
+	\end{longtable}%
+	\lipsum%
+	\lipsum%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
